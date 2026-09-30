@@ -232,12 +232,12 @@ For English and German, this relationship between information status and pronoun
 
 > (12) a\. [*Der Briefträger*~i~]{.underline} *hat [den Straßenfeger]{.underline}*~[j]{.underline}~ *getroffen*
 >
->      b\. *bevor [er]{.underline}*~i/j~ *nach Hause ging.* \
+>      b\. *bevor [er]{.underline}*~i/j~ *nach Hause ging.*\
 >      [@hemforth2010: 2218]
 >
 > (13) a\. [*The postman*~i~]{.underline} *met [the streetsweeper]{.underline}*~[j]{.underline}~
 >
->      b\. *before [he]{.underline}*~i/j~ *went home.* \
+>      b\. *before [he]{.underline}*~i/j~ *went home.*\
 >      [@hemforth2010: 2218]
 >
 > (14) a\. [*Juan*]{.underline}~i~ *vio a [Carlos]{.underline}*~[j]{.underline}~
@@ -693,7 +693,7 @@ The first part of the present study constitutes a **reproduction** study, as Koc
 
 The concept of **robustness** is additionally defined in @fig-theturingway as a study in which "the same dataset is subjected to different analysis workflows to answer the same research question \[...\] and a qualitatively similar or identical answer is produced" [@theturingwaycommunity2025]. **Generalisable** results, and **generalisability** itself, are not achieved simply by applying different analysis procedures to different datasets but by "combining replicable and robust findings" [@theturingwaycommunity2025]. The following section describes how these concepts are operationalised in the reproduction, replication, and robustness studies conducted in the present study.
 
-To assess the findability, accessibility, interoperability, and reusability of Kocher's study, data, and scripts, I use Wilkinson et al.'s [-@wilkinson2016: 4] **FAIR principles** as a guiding framework. My evaluation of Kocher's study according to these principles is presented in @sec-evaluation-FAIRness. To make my own study as **findable** and **accessible** as possible, I share the datasets before and after annotation (the latter is provided in the subfolder annotations in the *data* folder), as well as the analysis scripts in my [Github repository](https://github.com/TizianaIlie/TizianaIlie_MA_Thesis) (see also Appendix A). The numbered folders containing the reproduction, replication, and robustness analyses provide the files and data required to rerun the respective analyses. Folder `1_Reproduction_Kocher` contains the original data used by Kocher, the generated figures, and the `.R` scripts (`descriptive.R`, `demographic.R`, `mupdarfanalysis.R`), together with adapted versions (e.g. `descriptive_TI.R`) in which adjustments were required to run the code on my system. The datasets and annotation schemes used for the remaining analyses are stored in the separate `data` folder.
+To assess the findability, accessibility, interoperability, and reusability of Kocher's study, data, and scripts, I use Wilkinson et al.'s [-@wilkinson2016: 4] **FAIR principles** as a guiding framework. My evaluation of Kocher's study according to these principles is presented in @sec-evaluation-FAIRness. To make my own study as **findable** and **accessible** as possible, I share the datasets before and after annotation (the latter is provided in the subfolder annotations in the *data* folder), as well as the analysis scripts in my [Github repository](https://github.com/TizianaIlie/Github_thesis_TizianaIlie) (see also Appendix A). The numbered folders containing the reproduction, replication, and robustness analyses provide the files and data required to rerun the respective analyses. Folder `1_Reproduction_Kocher` contains the original data used by Kocher, the generated figures, and the `.R` scripts (`descriptive.R`, `demographic.R`, `mupdarfanalysis.R`), together with adapted versions (e.g. `descriptive_TI.R`) in which adjustments were required to run the code on my system. The datasets and annotation schemes used for the remaining analyses are stored in the separate `data` folder.
 
 In addition to the original three `.R` scripts and the `Figures` folder, `2_Robustness_Check` contains the robustness analysis (`RobustnessCheck_inner_annotator_agreement.qmd`) of the sample of three speaker texts that I re-annotated and for which I calculated inter-annotator agreement (see @sec-statistical-modelling). Folder `3_Extension1_GenderGenus` contains the corresponding `.qmd` file with the extended analysis, including the additional variables, as well as the figures generated from this analysis. Since the same extended L1 German dataset is used in `2_Robustness_Check` and `3_Extension1_GenderGenus`, there is no need to provide the `descriptive.R` and `demographic.R` scripts again. These scripts are included in `4_Extension2_GenusEnglish`, where they are required because the analysis is based on a new L1 English dataset.
 
@@ -855,19 +855,19 @@ round(table(datal2german$SubjectType) / sum(table(datal2german$SubjectType)) * 1
 ```
 
 ::: {#tbl-overview-frequencies}
-+------------------------------+------------+------------+------------+
-|                              | dp         | nullsub    | pron       |
-+==============================+============+============+============+
-| Spanish natives (L1), Kocher | 34.1%\     | 50%\       | 15.9%\     |
-|                              | (178)\     | (261)\     | (83)\      |
-+------------------------------+------------+------------+------------+
-| L1 German learners of\       | 37%\       | 47.5%\     | 15.5%\     |
-| L2 Spanish (L2), Kocher      | (865)\     | (1110)\    | (360)\     |
-+------------------------------+------------+------------+------------+
-| L1 German learners of\       | 37.5%\     | 47.2%\     | 15.4%\     |
-| L2 Spanish (L2),\            | (1103)\    | (1389)\    | (453)\     |
-| extended reproduction        |            |            |            |
-+------------------------------+------------+------------+------------+
++------------------------------+-------------+-------------+-------------+
+|                              | dp          | nullsub     | pron        |
++==============================+=============+=============+=============+
+| Spanish natives (L1), Kocher | 34.1%\      | 50%\        | 15.9%\      |
+|                              | (178)\      | (261)\      | (83)\       |
++------------------------------+-------------+-------------+-------------+
+| L1 German learners of\       | 37%\        | 47.5%\      | 15.5%\      |
+| L2 Spanish (L2), Kocher      | (865)\      | (1110)\     | (360)\      |
++------------------------------+-------------+-------------+-------------+
+| L1 German learners of\       | 37.5%\      | 47.2%\      | 15.4%\      |
+| L2 Spanish (L2),\            | (1103)\     | (1389)\     | (453)\      |
+| extended reproduction        |             |             |             |
++------------------------------+-------------+-------------+-------------+
 
 Proportion and frequency of subject type in the Spanish native speaker and the L1 German learner of L2 Spanish data.
 :::
@@ -1187,7 +1187,7 @@ The main difference between the surrogate tree obtained in the reproduction and 
 
 Despite this difference, the resulting pattern of pronoun use is consistent with the findings of the reproduction. Nodes 19 and 20 show that L1 German learners of L2 Spanish exhibit very low target-likeness when using pronouns in MCs, regardless of their proficiency level (p = 0.029). Their only target-like use of pronouns occurs in SCs with discontinuous but given subjects. These findings therefore support Kocher's observation that pronouns constitute "the biggest difficulty" and that L1 German learners show "the largest discrepancies" in their use [-@kocher_subject_2025: 25]. In the extended dataset, 33.3% of pronoun uses match the behaviour of the Spanish native speakers, compared with 34% in Kocher's analysis.
 
-The left branch of the surrogate tree, representing null subject and DP use, again contains complex interactions between [ClauseType, ReferentialContinuity, InformationStructure,]{.smallcaps} and [SubjectType,]{.smallcaps} similar to those reported by Kocher [-@kocher_subject_2025: 23]. Most null subject uses are target-like, with 75.1% matching the behaviour of the Spanish native speakers, compared with 75% in Kocher's analysis. The overuse of null subjects in MCs with discontinuous subjects identified by Kocher is also present in the extended dataset (node 5). Following Kocher, this pattern constitutes an "innovation", as "\[b\]oth in German and Spanish, the preferred subject type would be pronoun" \[-@kocher_subject_2025: 23\].
+The left branch of the surrogate tree, representing null subject and DP use, again contains complex interactions between [ClauseType, ReferentialContinuity, InformationStructure,]{.smallcaps} and [SubjectType,]{.smallcaps} similar to those reported by Kocher [-@kocher_subject_2025: 23]. Most null subject uses are target-like, with 75.1% matching the behaviour of the Spanish native speakers, compared with 75% in Kocher's analysis. The overuse of null subjects in MCs with discontinuous subjects identified by Kocher is also present in the extended dataset (node 5). Following Kocher, this pattern constitutes an "innovation", as "\[b\]oth in German and Spanish, the preferred subject type would be pronoun" \[[-@kocher_subject_2025]: 23\].
 
 The target-likeness of DP use is likewise consistent with Kocher's findings, although the pattern is less uniform than for null subjects. Overall, 77.3% of DP uses in the extended dataset match Spanish native speaker behaviour, compared with 77% in Kocher's analysis. L1 German learners use DPs target-like in MCs with discontinuous subjects (node 6), whereas their DP use in contexts with continuous subjects is less target-like, with a slight overuse of DPs. In these continuous contexts, Spanish native speakers predominantly use null subjects, whereas pronouns are the preferred form in the corresponding English contexts (see @tbl-InfluentialFactors). Overall, the surrogate tree obtained from the extended L1 German dataset reproduces the main patterns identified by Kocher. In particular, the difficulties associated with pronoun use, the high target-likeness of null subjects, and the largely target-like use of DPs remain stable despite the addition of further L1 German learners. The extended analysis therefore supports the robustness of Kocher's findings.
 
@@ -1947,4 +1947,4 @@ read.bibtex(file = "packages.bib")
 
 # Appendix A: Code {.unnumbered}
 
-The complete codes used for the analyses in this thesis are contained within the Quarto (`.qmd`) files, which is accessible in my GitHub repository: <https://github.com/TizianaIlie/TizianaIlie_MA_Thesis>.
+The complete codes used for the analyses in this thesis are contained within the Quarto (`.qmd`) files, which is accessible in my GitHub repository: <https://github.com/TizianaIlie/Github_thesis_TizianaIlie>.
