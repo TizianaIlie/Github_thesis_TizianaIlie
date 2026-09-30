@@ -1,0 +1,454 @@
+---
+title: "Preprocessing_data"
+format: html
+editor: visual
+author: "Tiziana Ilie"
+---
+
+## Set-up
+
+```{r}
+
+#loading packages
+
+library(here)
+library(tidyverse)
+
+```
+
+## Preprocessing the Spanish native data
+
+```{r}
+
+#Loading Kocher's Spanish native data
+
+kocher_native_data <- read.csv(here::here("data", "raw_data", "datanatives.csv"))
+
+# Adding the 'SubjectGenus' variable to the Kocher's dataframe
+
+kocher_native_data[, 'SubjectGenus'] = NA
+
+#write_csv(kocher_native_data, here("data", "kocher_native_data.csv")) #saving added data as .csv file
+
+```
+
+## Preprocessing the L1 German data
+
+```{r}
+
+#Loading Kocher's L1 German data and the additionally extracted L1 German data with more speaker texts
+
+raw_data_germanL1 <- read.csv(here::here("data", "raw_data", "raw_data_germanL1.csv"),sep = "\t") #extracted data from CEDEL2 at 2026-03-31
+
+kocher_data_germanL1 <- read.csv(here::here("data", "kocher_germanL1_data.csv")) #Kocher's annotated data
+
+#Extracting the newly added speakers
+new_germanL1 <- anti_join(raw_data_germanL1, kocher_data_germanL1, 
+          by = "Filename") #17 in total, not segmented nor annotated yet
+
+```
+
+The next step is to change the abbreviations in the 'Proficiency' column to the full names of the speaker proficiency levels in the 'germanL1_data_full' dataframe. Then, add the 'ProficiencyNr' column to make it easier to understand and later merge the 'new_germanL1' data into the 'kocher_data_germanL1' dataframe.
+
+```{r}
+
+kocher_data_germanL1 <- kocher_data_germanL1 |> 
+  mutate(
+    Proficiency = case_when(
+      Proficiency == "LB" ~ "Lower beginner",
+      Proficiency == "UB" ~ "Upper beginner",
+      Proficiency == "LI" ~ "Lower intermediate",
+      Proficiency == "UI" ~ "Upper intermediate",
+      Proficiency == "LA" ~ "Lower advanced",
+      Proficiency == "UA" ~ "Upper advanced",
+      TRUE ~ Proficiency)
+  )
+```
+
+Furthermore, I need to change the column names in the 'new_germanL1' dataframe so that they match those in the 'kocher_data_germanL1' dataframe, and I need to deselect the irrelevant columns in the 'new_germanL1' dataframe. After that, I will add the language proficiency level in numbers (levels 1–6), as well as the names of the different levels.
+
+```{r}
+
+colnames(new_germanL1) #current column names
+
+new_germanL1 <- new_germanL1 |>  #renaming columns as in Kochers df
+  rename(
+    "Year" = "Year.data.collection",
+    "AgeExposureSpanish" = "Age.of.exposure.to.Spanish",
+    "YearsstudySpanish" = "Years.studying.Spanish",
+    "AbroadSpanishCountry" = "Stay.abroad.in.Spanish.speaking.country.....1.month.",
+    "DurationTask" = "Minutes.taken.to.complete.the.task",
+    "LocationTask" = "Where.the.task.was.done",
+    "ForeignLanguage" = "Additional.foreign.language.s.",
+    "Score" = "Placement.test.score....",
+    "Place" = "School.University.Institution",
+    "FullText" = "Text"
+  ) |> 
+  select( #deselecting columns not needed
+    -Subcorpus, -Placement.test.score..raw., -L1, -Major, -Year.at.university.school, -Father.s.native.language, -Mother.s.nativelanguage, -Stay.abroad..where., -Stay.abroad..when., -Stay.abroad..months., -Language.certificates..type.and.level., -Proficiency..self.assessment..speaking, -Proficiency..self.assessment..listening, -Proficiency..self.assessment..reading, -Proficiency..self.assessment..writing, -Proficiency..self.assessment., -Proficiency..self.assessment..in.additional.language.speaking, -Proficiency..self.assessment..in.additional.language.listening, -Proficiency..self.assessment..in.additional.language.reading, -Proficiency..self.assessment..in.additional.language.writing, -Medium, -Task.number, -Task.title, -Writting.audio.details, -Resources.used, -Original.text) |> 
+  mutate( #adding ProficiencyNr column and values 1-6
+    ProficiencyNr = case_when(
+      Proficiency == "Lower beginner" ~ "1",
+      Proficiency == "Upper beginner" ~ "2",
+      Proficiency == "Lower intermediate" ~ "3",
+      Proficiency == "Upper intermediate"~ "4",
+      Proficiency == "Lower advanced" ~ "5",
+      Proficiency == "Upper advanced" ~ "6",
+      TRUE ~ Proficiency)
+    )
+
+```
+
+Next, I want to add the 'NSLhome' and 'NSLadditional' columns, and extract the 'Languages spoken at home' information.
+
+```{r}
+
+table(new_germanL1$Languages.spoken.at.home) # displaying languages spoken at home
+
+#Apart from German, some speakers also grew up acquiring English, Italian, Serbian, Spanish and Turkish
+
+class(new_germanL1$Languages.spoken.at.home) #vector type "character"
+
+nsl_home_L1germ <- c("Spanish", "Italian", "Serbian", "Turkish")
+
+new_germanL1 <- new_germanL1 |>
+  mutate(
+    NSLhome = case_when(
+      str_detect(Languages.spoken.at.home, paste(nsl_home_L1germ, collapse = "|")) ~ "Yes",
+      TRUE ~ "No"
+    )
+  ) #If the speakers grew up with a NSL at home the answer is "Yes", else "No"
+
+#Adding the NSLadditional column
+
+class(new_germanL1$ForeignLanguage) #vector type "character"
+
+table(new_germanL1$ForeignLanguage) # displaying foreign languages
+
+new_germanL1 <- new_germanL1 |>
+  mutate(NSLadditional = case_when(
+    NSLhome == "Yes" ~ "Yes",
+    NSLhome == "No" & ForeignLanguage == "Italien" ~ "Yes",
+    TRUE ~ "No" 
+  )) #When speakers already acquired a NSL at home then column "NSLadditional" will already be "yes". If they did not but learned a NSL later (here only one speaker learned Italian, the others only English which is not a NSL), than in column "NSLadditional" will be annotated "yes".
+
+```
+
+Before merging the two dataframes, I need to ensure that the values in the 'ProficiencyNr' column are of the same vector type.
+
+```{r}
+
+class(kocher_data_germanL1$ProficiencyNr) #integer
+class(new_germanL1$ProficiencyNr) #character
+
+new_germanL1 <- new_germanL1 |> 
+  mutate(ProficiencyNr = as.integer(ProficiencyNr)) #integer now
+
+#write_csv(new_germanL1, here("data", "new_germanL1.csv")) #saving added data as .csv file
+```
+
+Now, I can segment each clause in every text row. For this process, I use the Large Language Models (LLMs), *Meta Llama 3.3 70B* and *DeepSeek R1 Distill Llama 70B Instruct*, via the University of Cologne's academic cloud access. As this corpus contains learner data, many of the clauses were not segmented correctly, so I had to recognise and segment the remaining ones manually. The 'new_germanL1_segmented' dataframe is then read into R again for merging.
+
+```{r}
+
+#Reading the manually segmented file in R
+
+new_germanL1_segmented <- read.csv(here::here("data","new_germanL1_segmented.csv"), stringsAsFactors=TRUE)
+
+# Combining the segmented clauses of the dataframe 'new_germanL1_segmented' with the metadata of the dataframe 'new_germanL1'.
+
+joined_new_germanL1_segmented <- inner_join(x = new_germanL1_segmented, y = new_germanL1, by = "Filename")
+
+#I obtain a dataframe with 18 variables/columns as 'FullText' was added to the remaining 17 variables/columns of the dataframe 'new_germanL1'.
+```
+
+I am now merging the 'joined_new_germanL1_segmented' data frame, which contains the newly added L1 German data's clauses, file names and metadata, with the clauses already annotated from @kocher_subject_2025, using the bind_rows() function. The new dataframe is called 'joined_full_germanL1'.
+
+```{r}
+
+joined_germanL1_data <- bind_rows(kocher_data_germanL1, joined_new_germanL1_segmented)
+
+#Afterwards the column 'Thetarole' was deselected as I consider this to be a very subjective variable and it also did not enter into Kocher's model. Further, the column 'SentenceType' was also deleted as the majority of the entries in this column are declarative sentences. 
+
+joined_germanL1_data <- joined_germanL1_data |> 
+  select(-Thetarole,-SentenceType) 
+
+#Adding the 'SubjectGenus' variable to the 'joined_germanL1_data' dataset
+
+joined_germanL1_data[, 'SubjectGenus'] = NA
+
+#write_csv(joined_germanL1_data, here("data", "joined_germanL1_data.csv")) #saving added data as .csv file
+
+```
+
+This .csv file can now be annotated manually. Specifically, I annotate the values of the columns.
+
+- 'Textnr'
+
+- 'Sentence'
+
+- 'ID'
+
+- 'SubjectPosition'
+
+- 'ClauseType'
+
+- 'Specificity'
+
+- 'InformationStructure'
+
+- 'ReferentialContinuity'
+
+- 'Subjecttype'
+
+- 'Verb'
+
+- 'VerbConstruction'
+
+- 'SubjectGenus'
+
+## L1 German data extraction for checking the robustness of Kocher's annotation
+
+To conduct a robustness check later on, I will randomly select three speakers from the @kocher_subject_2025 dataset and re-annotate their clauses to verify that the annotation processes are aligned.
+
+```{r}
+
+#Letting R select three Filenames randomly
+
+set.seed(8)  # Setting a seed ensures that the outcome of my randomly generated number series is always the same, making my study reproducible. 
+random_filenames <- sample(kocher_data_germanL1$Filename, 3)
+
+#[1] "DE_WR_41_23_5_14_PN" 
+#[2] "DE_WR_39_46_30_14_IK"
+#[3] "DE_WR_41_21_3_14_MP" 
+
+
+#Creating a new data frame containing only the rows of the three selected filenames.
+
+sample_kocher_germanL1 <- kocher_data_germanL1 |> 
+  filter(Filename %in% c(
+    "DE_WR_41_23_5_14_PN",
+    "DE_WR_39_46_30_14_IK",
+    "DE_WR_41_21_3_14_MP")
+   )
+
+#Adding the 'SubjectGenus' column
+
+sample_kocher_germanL1[, 'SubjectGenus'] = NA
+
+#Deleting 'Thetarole' and 'SentenceType' columns
+
+sample_kocher_germanL1 <- sample_kocher_germanL1 |> 
+  select(-Thetarole, -SentenceType) #deselecting columns not needed
+
+#write_csv(sample_kocher_germanL1, here("data", "sample_kocher_germanL1.csv")) #saving data as .csv file
+
+```
+
+The columns in the 'sample_kocher_germanL1' data frame will be cleared and re-annotated manually.
+
+## Preprocessing the L1 English data
+
+```{r}
+
+englishL1_data <- read.csv(here::here("data", "raw_data/raw_data_englishL1.csv"), sep = "\t")
+
+# Rename the columns so that they align with the L1 German data.
+
+colnames(englishL1_data) #current column names
+
+englishL1_data <- englishL1_data |>  #renaming columns as in Kochers df
+  rename(
+    "Year" = "Year.data.collection",
+    "AgeExposureSpanish" = "Age.of.exposure.to.Spanish",
+    "YearsstudySpanish" = "Years.studying.Spanish",
+    "AbroadSpanishCountry" = "Stay.abroad.in.Spanish.speaking.country.....1.month.",
+    "DurationTask" = "Minutes.taken.to.complete.the.task",
+    "LocationTask" = "Where.the.task.was.done",
+    "ForeignLanguage" = "Additional.foreign.language.s.",
+    "Score" = "Placement.test.score....",
+    "Place" = "School.University.Institution",
+    "FullText" = "Text"
+  ) |> 
+  select( #deselecting columns not needed
+    -Subcorpus, -Placement.test.score..raw., -L1, -Major, -Year.at.university.school, -Father.s.native.language, -Mother.s.nativelanguage, -Stay.abroad..where., -Stay.abroad..when., -Stay.abroad..months., -Language.certificates..type.and.level., -Proficiency..self.assessment..speaking, -Proficiency..self.assessment..listening, -Proficiency..self.assessment..reading, -Proficiency..self.assessment..writing, -Proficiency..self.assessment., -Proficiency..self.assessment..in.additional.language.speaking, -Proficiency..self.assessment..in.additional.language.listening, -Proficiency..self.assessment..in.additional.language.reading, -Proficiency..self.assessment..in.additional.language.writing, -Medium, -Task.number, -Task.title, -Writting.audio.details, -Resources.used, -Original.text) |> 
+  mutate( #adding ProficiencyNr column and values 1-6
+    ProficiencyNr = case_when(
+      Proficiency == "Lower beginner" ~ "1",
+      Proficiency == "Upper beginner" ~ "2",
+      Proficiency == "Lower intermediate" ~ "3",
+      Proficiency == "Upper intermediate"~ "4",
+      Proficiency == "Lower advanced" ~ "5",
+      Proficiency == "Upper advanced" ~ "6",
+      TRUE ~ Proficiency)
+    )
+```
+
+Next, I added the 'NSLhome' and 'NSLadditional' columns.
+
+```{r}
+
+table(englishL1_data$Languages.spoken.at.home) # displaying languages spoken at home
+
+#Apart from English, some speakers also acquired other languages during their childhood, such as Farsi, Kurdish, French, Gujarati, Hindi, Japanese, Spanish, Italian, Portuguese and Punjabi.
+
+nsl_home_L1engl <- c("Farsi", "Kurdish", "Gujarati", "Hindi", "Japanese", "Spanish", "Italian", "Portuguese", "Punjabi")
+
+class(englishL1_data$Languages.spoken.at.home) #vector type "character"
+
+englishL1_data <- englishL1_data |>
+  mutate(
+    NSLhome = case_when(
+      str_detect(Languages.spoken.at.home, paste(nsl_home_L1engl, collapse = "|")) ~ "Yes",
+      TRUE ~ "No")) #If the speakers grew up with a NSL at home the answer is "Yes", else "No"
+
+
+#Adding the NSLadditional column
+
+class(englishL1_data$ForeignLanguage) #vector type "character"
+
+table(englishL1_data$ForeignLanguage) # displaying foreign languages learned
+
+nsl_foreignlg_L1engl <- c("Arabic", "Catalan", "Gujarati", "Hindi", "Italian", "Japanese", "Portuguese", "Kaqchikel", "Kurdish", "Russian", "Swahili")
+
+
+englishL1_data <- englishL1_data |>
+  mutate(NSLadditional = case_when(
+    NSLhome == "Yes" ~ "Yes",
+    NSLhome == "No" & str_detect(ForeignLanguage, paste(nsl_foreignlg_L1engl, collapse = "|")) ~ "Yes",
+      TRUE ~ "No")
+    ) #If speakers have already acquired an NSL at home, the 'NSL additional' column will already be set to 'Yes'. If they did not, but acquired an NSL later (Arabic, Catalan, Gujarati, Hindi, Italian, Japanese, Portuguese, Kaqchikel, Kurdish, Russian or Swahili), then the 'NSL additional' column will be annotated 'Yes'.
+
+
+#Checking whether the vector type of the 'ProficiencyNr' column aligns with the L1German dataset.
+
+class(englishL1_data$ProficiencyNr) #character
+
+englishL1_data <- englishL1_data |> 
+  mutate(ProficiencyNr = as.integer(ProficiencyNr)) #changed to integer now
+
+#write_csv(englishL1_data, here("data", "englishL1_data.csv")) #saving added data as .csv file
+
+```
+
+Using the machine-learning tools *Meta Llama 3.3 70B* and *DeepSeek R1 Distill LLama 70B Instruct*, I segmented each clause in every text via the University of Cologne's academic cloud access. The 'L1.csv_segmented' data frame in English is then read into R again for merging.
+
+```{r}
+
+#Reading the segmented file into R
+
+englishL1_segmented <- read.csv(here::here("data", "englishL1_segmented.csv"), stringsAsFactors=TRUE)
+
+colnames(englishL1_segmented)
+colnames(englishL1_data) 
+
+# Combining the segmented clauses of the 'englishL1_segmented' dataframe with the 'englishL1_data' dataframe metadata.
+
+joined_englishL1_data <- inner_join(x = englishL1_segmented, y = englishL1_data, by = "Filename")
+
+#Adding the 'SubjectGenus' variable to the 'joined_germanL1_data' data frame for manual annotation.
+
+joined_englishL1_data[, 'SubjectGenus'] = NA
+joined_englishL1_data[, 'Textnr'] = NA
+joined_englishL1_data[, 'Sentence'] = NA
+joined_englishL1_data[, 'ID'] = NA
+joined_englishL1_data[, 'SubjectPosition'] = NA
+joined_englishL1_data[, 'ClauseType'] = NA
+joined_englishL1_data[, 'Specificity'] = NA
+joined_englishL1_data[, 'InformationStructure'] = NA
+joined_englishL1_data[, 'ReferentialContinuity'] = NA
+joined_englishL1_data[, 'Subjecttype'] = NA
+joined_englishL1_data[, 'Verb'] = NA
+joined_englishL1_data[, 'VerbConstruction'] = NA
+
+```
+
+As the L1 German data, including the newly added speaker texts, contains 2997 clauses, I also aim to extract a large number of L1 English clauses to be annotated manually. To this end, I have selected a random sample of 1300 clauses using the following code lines:
+
+```{r}
+
+joined_englishL1_data$sample <- NA #creating sample column
+set.seed(42)  #Setting a seed ensures that the outcome of my randomly generated number series is always the same, making my study reproducible.
+
+random_clauses <- sample(nrow(joined_englishL1_data), 1300)
+
+#Assigning the word 'sample' to the selected rows
+
+"sample" -> joined_englishL1_data$sample[random_clauses]
+
+#write_csv(joined_englishL1_data, here("data", "joined_englishL1_data.csv")) #saving added data as .csv file
+
+```
+
+**ANNOTATION SCHEME:**
+
+::: {#tbl-variables}
++---------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Variable                  | Annotated values                                                                                                                                                                                                                                            |
++===========================+=============================================================================================================================================================================================================================================================+
+| **SubjectPosition**       | PRE, POST, NA (in nullsub cases)                                                                                                                                                                                                                            |
++---------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **ClauseType**            | MC, SC                                                                                                                                                                                                                                                      |
++---------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Specificity**           | DEF, INFED, NA (when nullsub is used)                                                                                                                                                                                                                       |
++---------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **InformationStructure**  | GI(VEN), NE(W), NA (unknown subject form)                                                                                                                                                                                                                   |
++---------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **ReferentialContinuity** | Y(ES), N(O), NA (unknown subject form)                                                                                                                                                                                                                      |
++---------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **SubjectType**           | nullsub, dp, pron                                                                                                                                                                                                                                           |
++---------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Verb**                  | Verb of the corresponding sentence                                                                                                                                                                                                                          |
++---------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **VerbConstruction**      | simple-finite, periphrasis-lexical, periphrasis-gerund, modal, infinitive                                                                                                                                                                                   |
++---------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **SubjectGenus**          | masc, fem, unknown¹                                                                                                                                                                                                                                         |
+|                           |                                                                                                                                                                                                                                                             |
+|                           | ¹Some of the *unknown* cases, that Kocher actually claims to have excluded, are still within the annotated data. *Unknown* includes cases in which the subject is not clearly identifiable from the prior context, where an impersonal form has been used.\ |
+|                           |                                                                                                                                                                                                                                                             |
+|                           | *Unknown* examples:                                                                                                                                                                                                                                         |
+|                           |                                                                                                                                                                                                                                                             |
+|                           | - *cuando de repente le tiran como basura* from kocher_native_data 1_5;                                                                                                                                                                                     |
+|                           |                                                                                                                                                                                                                                                             |
+|                           | - *Se le ha caído algo* from kocher_native_data 2_10;                                                                                                                                                                                                       |
+|                           |                                                                                                                                                                                                                                                             |
+|                           | - *que han de cuidarlo y darle mimos* from kocher_native_data 7_25;                                                                                                                                                                                         |
+|                           |                                                                                                                                                                                                                                                             |
+|                           | - *y alguien vuelve a tirar basura muy cerca de él* from kocher_native_data 10_7                                                                                                                                                                            |
++---------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+:::
+
+Some notes to explain the variables in Kocher's (2025) and my data annotation:
+
+- The 'Foreign language' column seems to refer only to additional foreign languages studied, rather than other first languages (L1) acquired at home (NSLhome). @kocher_subject_2025 simply categorised whether speakers had acquired a null subject language at home without specifying which. In this case, 'No' could mean that the speaker has not acquired another language, or that the language they grew up with was not a null subject language.
+
+- @kocher_subject_2025 separated the subordinate clauses (SCs), such as '*mientras la gente que vive en los edificios tiran su basura de la ventana a la calle*', from the main clause (MC), displaying them in a row below.
+
+- The cut-out SCs were marked as \[...\] within the MCs.
+
+- Direct speech was also marked in brackets. Lines containing English direct speech were omitted (e.g. 'kocher_data_germanL1', ID9_28), but not when the direct speech was translated into Spanish (e.g. 'kocher_data_germanL1', ID59_9).
+
+- I took over the same exclusion criteria as @kocher_subject_2025 which applies to imperatives, indefinite *se* constructions and impersonal sentences (e.g., hay, see *Al principio, hay un hombre* (EN_WR_25_20_1_14_SM) or *parece que as in y parece que decide dejar al bebe* (EN_WR_41_27_6_14_DA). Also I decided to exclude sentences that do not contain a verb (see *¿Quizás la madre de otra bebé?* EN_WR_32_59_1_14_TC) or in which the student used an English word (see *La cop chase the el hombre* EN_WR_12_30_0.7_14_NC no. 6_5).
+
+- Further, I excluded meta commentaries in the L1 English dataset, such as *La pelicula es en negro y blanco, pero es muy beuno* (in EN_WR_14_23_1_14_BB), as well as comments written in the first person singular or plural, such as *i do not know what else to write i already did my best with the previous sentences i wrote* (EN_WR_20_21_4_14_PKO) or *Al inizio del short lo vemos vestido mal con la ropa desarreglada* (EN_WR_39_62_2_14_MA) before the annotation process, in order to avoid their accidental inclusion in the random sample.
+
+  I decided to exclude them, as there are too few first-person sentences to obtain reliable results about these subjects' behaviour and make meaningful model interpretations. In contrast, @kocher_subject_2025 mostly deleted them after assigning an ID number, as some ID numbers are missing from the final annotated document (see 'kocher_germanL1_data file'). However, some clauses containing first-person singular or plural subjects remained in her annotation and consequently influenced the results (see e.g. *i creó* in 'joined_germanL1_data_annotation' (DE_WR_31_27_24_14_MS no. 19_2), in joined_germanL1_data_annotation (*Nunca aprendì espanol* DE_WR_20_50_2_14_HO no. 4_2).
+
+- I also excluded sentences in which the verb used can not be identified (see *Entonces el hombre montanió el bebe* EN_WR_30_20_3_14_BRB)
+
+## Post-annotating the L1 English data
+
+Having manually annotated the L1 English data sample, I want to ensure that only the annotated clauses are included in my analysis. To do this, I will create a dataframe containing only the 'sample' sentences from the 'joined_englishL1_data_annotation' dataframe.
+
+```{r}
+joined_englishL1_data_annotation <- read.csv(here::here("data", "annotations", "joined_englishL1_data_annotation.csv"), stringsAsFactors = TRUE)
+
+datal2english <- joined_englishL1_data_annotation |> 
+  filter(sample == "sample") |> 
+  rename("SubjectType" = "Subjecttype")  #correcting the column name for further operations
+
+#write_csv(datal2english, here("data", "annotations", "datal2english.csv")) #saving added data as .csv file
+  
+```
+
+This results in a data frame containing `{r} nrow(datal2english)` rows.

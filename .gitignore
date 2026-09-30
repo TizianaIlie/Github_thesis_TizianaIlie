@@ -1,0 +1,6 @@
+.DS_store
+.~lock.*
+.Rproj.user
+/.quarto/
+
+**/*.quarto_ipynb

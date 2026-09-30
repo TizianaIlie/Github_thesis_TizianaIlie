@@ -1,0 +1,523 @@
+Textnr,Sentence,ID,Year,Place,Sex,Age,ForeignLanguages,Text,SubjectGenus,SubjectPosition,Thetarole,ClauseType,SentenceType,Specificity,InformationStructure,ReferentialContinuity,SubjectType,VERB,VERBCONSTRUCTION
+1,1,1_1,2018,Granada,female,21,English,Está el protagonista en la calle.,masc,POST,pacient,MC,D,DEF,NE,N,dp,ser,finite+simple
+1,2,1_2,2018,Granada,female,21,English,diría,masc,NA,agent,MC,D,NA,NE,N,nullsub,decir,finite+simple
+1,4,1_4,2018,Granada,female,21,English,donde están construyendo o algo,unknown,NA,pacient,SC,D,NA,NE,N,nullsub,estar,periphrasis-gerund
+1,5,1_5,2018,Granada,female,21,English,cuando de repente le tiran como basura,unknown,NA,agent,MC,D,NA,GI,Y,nullsub,tirar,finite+simple
+1,6,1_6,2018,Granada,female,21,English,entonces saca de la cajetilla un cigarrillo,masc,NA,agent,MC,D,NA,GI,N,nullsub,sacar,finite+simple
+1,7,1_7,2018,Granada,female,21,English,lo enciende,masc,NA,agent,MC,D,NA,GI,Y,nullsub,encender,finite+simple
+1,8,1_8,2018,Granada,female,21,English,tira sus guantes,masc,NA,agent,MC,D,NA,GI,Y,nullsub,tirar,finite+simple
+1,9,1_9,2018,Granada,female,21,English,y encuentra a un bebé,masc,NA,agent,MC,D,NA,GI,Y,nullsub,encontrar,finite+simple
+1,10,1_10,2018,Granada,female,21,English,lo coje,masc,NA,agent,MC,D,NA,GI,Y,nullsub,coger,finite+simple
+1,11,1_11,2018,Granada,female,21,English,ve a una madre con un carrito,masc,NA,pacient,MC,D,NA,GI,Y,nullsub,ver,finite+simple
+1,14,1_14,2018,Granada,female,21,English,que el bebé es suyo,masc,PRE,pacient,SC,D,DEF,NE,N,dp,ser,finite+simple
+1,16,1_16,2018,Granada,female,21,English,Prosigue a dejar al bebé,masc,NA,agent,MC,D,NA,GI,N,nullsub,prosigue,infinitive
+1,17,1_17,2018,Granada,female,21,English,donde lo ha encontrado,masc,NA,agent,SC,D,NA,GI,Y,nullsub,encontrar,finite+simple
+1,18,1_18,2018,Granada,female,21,English,le ve un guardia,masc,POST,pacient,MC,D,INDEF,NE,N,dp,ver,finite+simple
+1,19,1_19,2018,Granada,female,21,English,y vuelve a cogerlo,masc,NA,agent,MC,D,NA,GI,N,nullsub,volver,periphrasis-lexical
+1,20,1_20,2018,Granada,female,21,English,Ve  a un hombre,masc,NA,pacient,MC,D,NA,GI,Y,nullsub,ver,finite+simple
+1,21,1_21,2018,Granada,female,21,English,"y se lo da,",masc,NA,agent,MC,D,NA,GI,Y,nullsub,dar,finite+simple
+1,23,1_23,2018,Granada,female,21,English,el señor ve a la mujer mencionada anteriormente,masc,PRE,pacient,MC,D,DEF,NE,N,dp,ver,finite+simple
+1,24,1_24,2018,Granada,female,21,English,y pone al bebé en el carrito,masc,NA,agent,MC,D,NA,GI,Y,nullsub,poner,finite+simple
+1,25,1_25,2018,Granada,female,21,English,La mujer ve a Chaplin,fem,PRE,pacient,MC,D,DEF,GI,N,dp,ver,finite+simple
+1,26,1_26,2018,Granada,female,21,English,le pega,fem,NA,agent,MC,D,NA,GI,Y,nullsub,pegar,finite+simple
+1,27,1_27,2018,Granada,female,21,English,y al final éste acaba llevándose al bebé,masc,PRE,pacient,MC,D,DEF,GI,N,pron,llevar,periphrasis-gerund
+1,28,1_28,2018,Granada,female,21,English,Se sienta en un bordillo de la acera,masc,NA,agent,MC,D,NA,GI,Y,nullsub,sentarse,finite+simple
+1,29,1_29,2018,Granada,female,21,English,y encuentra una nota,masc,NA,agent,MC,D,NA,GI,Y,nullsub,encontrar,finite+simple
+1,30,1_30,2018,Granada,female,21,English,que dice,fem,PRE,agent,SC,D,DEF,NE,N,pron,decir,finite+simple
+1,32,1_32,2018,Granada,female,21,English,y finalmente se lo lleva.,masc,NA,agent,MC,D,NA,GI,N,nullsub,llevarse,finite+simple
+2,1,2_1,2018,Granada,female,21,"English, Italian",Charles Chaplin está caminando por la calle.,masc,PRE,agent,MC,D,DEF,NE,N,dp,caminar,periphrasis-gerund
+2,2,2_2,2018,Granada,female,21,"English, Italian","Desde las ventanas, la gente está arrojando basura.",fem,PRE,agent,MC,D,DEF,NE,N,dp,arrojar,periphrasis-gerund
+2,3,2_3,2018,Granada,female,21,"English, Italian",Cuando avanza,masc,NA,agent,SC,D,NA,GI,N,nullsub,avanzar,finite+simple
+2,4,2_4,2018,Granada,female,21,"English, Italian",descubre un bebé envuelto en mantas junto a los cubos de basura,masc,NA,pacient,MC,D,NA,GI,Y,nullsub,descubrir,finite+simple
+2,5,2_5,2018,Granada,female,21,"English, Italian",y lo recoge del suelo,masc,NA,agent,MC,D,NA,GI,Y,nullsub,recoger,finite+simple
+2,6,2_6,2018,Granada,female,21,"English, Italian","En ese momento, aparece una mujer",fem,POST,pacient,MC,D,INDEF,NE,N,dp,aparecer,finite+simple
+2,8,2_8,2018,Granada,female,21,"English, Italian",Chaplin decide colocar el bebé en el carro,masc,PRE,agent,MC,D,DEF,GI,N,dp,decidir,infinitive
+2,9,2_9,2018,Granada,female,21,"English, Italian",y le dice a la mujer,masc,NA,agent,MC,D,NA,GI,N,nullsub,decir,finite+simple
+2,10,2_10,2018,Granada,female,21,"English, Italian",'Se le ha caído algo'.,unknown,POST,pacient,MC,D,INDEF,NE,N,pron,caer,finite+simple
+2,11,2_11,2018,Granada,female,21,"English, Italian",La mujer […] se niega a hacerse cargo de él,fem,PRE,agent,MC,D,DEF,GI,N,dp,negarse,infinitive
+2,12,2_12,2018,Granada,female,21,"English, Italian",que no es la madre de este bebé,fem,POST,pacient,SC,D,DEF,GI,Y,dp,ser,finite+simple
+2,13,2_13,2018,Granada,female,21,"English, Italian",pues piensa,fem,NA,agent,MC,D,NA,GI,Y,nullsub,pensar,finite+simple
+2,14,2_14,2018,Granada,female,21,"English, Italian",que Chaplin se está intentando deshacer de él.,masc,PRE,agent,SC,D,DEF,GI,N,dp,intentar,periphrasis-gerund
+2,15,2_15,2018,Granada,female,21,"English, Italian",Avanza la historia,fem,POST,pacient,MC,D,DEF,NE,N,dp,avanzar,finite+simple
+2,16,2_16,2018,Granada,female,21,"English, Italian",y aparece un hombre desconocido,masc,POST,pacient,MC,D,INDEF,NE,N,dp,aparecer,finite+simple
+2,17,2_17,2018,Granada,female,21,"English, Italian",a quien Chaplin entrega el bebé.,masc,PRE,agent,SC,D,DEF,GI,N,dp,entregar,finite+simple
+2,18,2_18,2018,Granada,female,21,"English, Italian","Después, este hombre encuentra el carro de la mujer aparcado en la calle",masc,PRE,agent,MC,D,DEF,GI,N,dp,encontrar,finite+simple
+2,19,2_19,2018,Granada,female,21,"English, Italian",y pone al bebé en él.,masc,NA,agent,MC,D,NA,GI,Y,nullsub,poner,finite+simple
+2,20,2_20,2018,Granada,female,21,"English, Italian","La mujer, […], descubre de nuevo al bebé en el carro",fem,PRE,pacient,MC,D,DEF,GI,N,dp,descubrir,finite+simple
+2,22,2_22,2018,Granada,female,21,"English, Italian",y en ese momento pasa Chaplin.,masc,POST,pacient,MC,D,DEF,GI,N,dp,pasar,finite+simple
+2,23,2_23,2018,Granada,female,21,"English, Italian",Ella piensa,fem,PRE,agent,MC,D,DEF,GI,N,pron,pensar,finite+simple
+2,24,2_24,2018,Granada,female,21,"English, Italian",que lo ha vuelto a hacer él,masc,POST,agent,SC,D,DEF,GI,N,pron,volver,finite+simple
+2,25,2_25,2018,Granada,female,21,"English, Italian",y le grita,fem,NA,agent,MC,D,NA,GI,N,nullsub,gritar,finite+simple
+2,26,2_26,2018,Granada,female,21,"English, Italian",y pega muy enfadada.,fem,NA,agent,MC,D,NA,GI,Y,nullsub,pegar,finite+simple
+2,27,2_27,2018,Granada,female,21,"English, Italian",A Chaplin no le queda más remedio que quedarse con el niño.,masc,PRE,pacient,MC,D,INDEF,NE,N,dp,quedar,finite+simple
+2,29,2_29,2018,Granada,female,21,"English, Italian",cuando descubre entre las mantas una nota.,masc,NA,pacient,SC,D,NA,NA,NA,nullsub,descubrir,finite+simple
+2,31,2_31,2018,Granada,female,21,"English, Italian","Finalmente, Chaplin se queda con el bebé.",masc,PRE,pacient,MC,D,DEF,GI,N,dp,quedarse,finite+simple
+3,1,3_1,2018,Granada,male,21,"English, German","Un hombre, interpretado por Charles Chaplin, va caminando tranquilamente por la calle",masc,PRE,agent,MC,D,INDEF,NE,N,dp,caminar,periphrasis-gerund
+3,2,3_2,2018,Granada,male,21,"English, German",cuando le caen varios ladrillos a la cabeza.,masc,POST,pacient,SC,D,INDEF,NE,N,dp,caer,finite+simple
+3,3,3_3,2018,Granada,male,21,"English, German",Se enciende un cigarrillo,masc,NA,agent,MC,D,NA,GI,N,nullsub,encender,finite+simple
+3,4,3_4,2018,Granada,male,21,"English, German",y tira sus guantes a la papelera.,masc,NA,agent,MC,D,NA,GI,Y,nullsub,tirar,finite+simple
+3,5,3_5,2018,Granada,male,21,"English, German",Se encuentra con un bebé,masc,NA,pacient,MC,D,NA,GI,Y,nullsub,encontrarse,finite+simple
+3,6,3_6,2018,Granada,male,21,"English, German",que está llorando y tirado en la calle.,masc,PRE,agent,SC,D,DEF,NE,N,pron,llorar,periphrasis-gerund
+3,7,3_7,2018,Granada,male,21,"English, German",Lo recoge,masc,NA,agent,MC,D,NA,GI,N,nullsub,recoger,finite+simple
+3,8,3_8,2018,Granada,male,21,"English, German",y lo deja en el carrito de una mujer,masc,NA,agent,MC,D,NA,GI,Y,nullsub,dejar,finite+simple
+3,10,3_10,2018,Granada,male,21,"English, German",Esta dice,fem,PRE,agent,MC,D,DEF,NE,N,pron,decir,finite+simple
+3,11,3_11,2018,Granada,male,21,"English, German",que no es suyo,masc,NA,pacient,SC,D,NA,GI,N,nullsub,ser,finite+simple
+3,12,3_12,2018,Granada,male,21,"English, German",y obliga a Chaplin a llevárselo con él.,fem,NA,agent,MC,D,NA,GI,Y,nullsub,obligar,infinitive
+3,13,3_13,2018,Granada,male,21,"English, German",Chaplin va a devolver al niño al sitio,masc,PRE,agent,MC,D,DEF,GI,N,dp,devolver,finite+simple
+3,14,3_14,2018,Granada,male,21,"English, German",donde lo encontró,masc,NA,agent,SC,D,NA,GI,Y,nullsub,encontrar,finite+simple
+3,15,3_15,2018,Granada,male,21,"English, German",cuando aparece un policía,masc,POST,pacient,SC,D,INDEF,NE,N,dp,aparecer,finite+simple
+3,16,3_16,2018,Granada,male,21,"English, German",como le ve,masc,NA,pacient,MC,D,NA,GI,Y,nullsub,ver,finite+simple
+3,17,3_17,2018,Granada,male,21,"English, German",tiene que llevárselo consigo.,masc,NA,pacient,MC,D,NA,GI,N,nullsub,llevarse,modal
+3,18,3_18,2018,Granada,male,21,"English, German",Engaña a un hombre mayor,masc,NA,agent,MC,D,NA,GI,Y,nullsub,engañar,finite+simple
+3,19,3_19,2018,Granada,male,21,"English, German",que iba por la calle,masc,PRE,agent,SC,D,DEF,NE,Y,pron,ir,finite+simple
+3,20,3_20,2018,Granada,male,21,"English, German",para que se lo quede.,masc,NA,pacient,SC,D,NA,GI,Y,nullsub,quedarse,finite+simple
+3,21,3_21,2018,Granada,male,21,"English, German",El señor deja de nuevo al bebé en el carrito de la mujer.,masc,PRE,agent,MC,D,DEF,GI,Y,dp,dejar,finite+simple
+3,22,3_22,2018,Granada,male,21,"English, German",Cuando la mujer se da cuenta,fem,PRE,pacient,SC,D,DEF,GI,N,dp,darse,periphrasis-lexical
+3,23,3_23,2018,Granada,male,21,"English, German",se encuentra con Chaplin de nuevo,fem,NA,pacient,MC,D,NA,GI,Y,nullsub,encontrarse,finite+simple
+3,24,3_24,2018,Granada,male,21,"English, German",y le obliga a llevárselo.,fem,NA,agent,MC,D,NA,GI,Y,nullsub,obligar,infinitive
+3,25,3_25,2018,Granada,male,21,"English, German","Finalmente, Chaplin […] encuentra una nota.",masc,PRE,pacient,MC,D,DEF,GI,N,dp,encontrar,finite+simple
+3,26,3_26,2018,Granada,male,21,"English, German",que dudaba,masc,PRE,agent,SC,D,DEF,GI,Y,pron,dudar,finite+simple
+3,29,3_29,2018,Granada,male,21,"English, German",y así lo hace.,masc,NA,agent,MC,D,NA,GI,N,nullsub,hacer,finite+simple
+4,1,4_1,2017,Cádiz,female,38,"English, French",La historia trata de un señor,fem,PRE,agent,MC,D,DEF,NE,N,dp,tratar,periphrasis-lexical
+4,2,4_2,2017,Cádiz,female,38,"English, French",que va paseando por un barrio obrero.,masc,PRE,agent,SC,D,DEF,NE,N,pron,pasear,periphrasis-gerund
+4,3,4_3,2017,Cádiz,female,38,"English, French",La secuencia se desarrolla de modo cómico.,fem,PRE,pacient,MC,D,DEF,NE,N,dp,desarrollarse,finite+simple
+4,4,4_4,2017,Cádiz,female,38,"English, French","En primera instancia, el señor […] sufre un pequeño accidente:",masc,PRE,pacient,MC,D,DEF,GI,N,dp,sufrir,finite+simple
+4,5,4_5,2017,Cádiz,female,38,"English, French","que va vestido de una manera elegante, con sombrero y bastón,",masc,PRE,pacient,SC,D,DEF,GI,Y,pron,ir,finite+simple
+4,6,4_6,2017,Cádiz,female,38,"English, French",cae sobre él un trozo de cornisa,masc,POST,pacient,MC,D,DEF,NE,N,pron,caer,finite+simple
+4,7,4_7,2017,Cádiz,female,38,"English, French",que se desprende desde lo alto de un ruinoso edificio.,masc,PRE,agent,SC,D,DEF,GI,Y,pron,desprenderse,finite+simple
+4,8,4_8,2017,Cádiz,female,38,"English, French",El señor no se preocupa demasiado,masc,PRE,agent,MC,D,DEF,GI,N,dp,preocuparse,finite+simple
+4,9,4_9,2017,Cádiz,female,38,"English, French",se limpia su indumentaria,masc,NA,agent,MC,D,NA,GI,Y,nullsub,limpiar,finite+simple
+4,10,4_10,2017,Cádiz,female,38,"English, French",arroja los escombros en un cubo de basura,masc,NA,agent,MC,D,NA,GI,Y,nullsub,arrojar,finite+simple
+4,11,4_11,2017,Cádiz,female,38,"English, French",y se enciende un cigarrillo.,masc,NA,agent,MC,D,NA,GI,Y,nullsub,encender,finite+simple
+4,13,4_13,2017,Cádiz,female,38,"English, French",agacha la cabeza,masc,NA,agent,MC,D,NA,GI,Y,nullsub,agachar,finite+simple
+4,14,4_14,2017,Cádiz,female,38,"English, French",y descubre a un bebé,masc,NA,pacient,MC,D,NA,GI,Y,nullsub,descubrir,finite+simple
+4,16,4_16,2017,Cádiz,female,38,"English, French",El bebé aparece envuelto en una toquilla.,masc,PRE,pacient,MC,D,DEF,GI,Y,dp,aparecer,finite+simple
+4,17,4_17,2017,Cádiz,female,38,"English, French",El señor lo coge,masc,PRE,agent,MC,D,DEF,GI,N,dp,coger,finite+simple
+4,18,4_18,2017,Cádiz,female,38,"English, French",y comienza a buscar algún indicio sobre su procedencia.,masc,NA,agent,MC,D,NA,GI,Y,nullsub,comenzar,infinitive
+4,19,4_19,2017,Cádiz,female,38,"English, French",Pasa una señora con otro bebé en un carrito,fem,POST,pacient,MC,D,INDEF,NE,N,dp,pasar,finite+simple
+4,20,4_20,2017,Cádiz,female,38,"English, French",y el señor decide colocar al otro dentro.,masc,PRE,agent,MC,D,DEF,GI,N,dp,decidir,infinitive
+4,21,4_21,2017,Cádiz,female,38,"English, French",La señora lo descubre,fem,PRE,pacient,MC,D,DEF,GI,N,dp,descubrir,finite+simple
+4,22,4_22,2017,Cádiz,female,38,"English, French",y le devuelve al bebé muy enfadada.,fem,NA,agent,MC,D,NA,GI,Y,nullsub,devolver,finite+simple
+4,23,4_23,2017,Cádiz,female,38,"English, French",Como ve,masc,NA,pacient,MC,D,NA,GI,N,nullsub,ver,finite+simple
+4,24,4_24,2017,Cádiz,female,38,"English, French",que no tiene suerte,masc,NA,pacient,SC,D,NA,GI,Y,nullsub,tener,finite+simple
+4,25,4_25,2017,Cádiz,female,38,"English, French",decide devolver a la criatura a su sitio,masc,NA,agent,MC,D,NA,GI,Y,nullsub,decidir,infinitive
+4,26,4_26,2017,Cádiz,female,38,"English, French",pero se encuentra con un policía,masc,NA,pacient,MC,D,NA,GI,Y,nullsub,encontrarse,finite+simple
+4,27,4_27,2017,Cádiz,female,38,"English, French",y no se la juega.,unknown,NA,agent,MC,D,NA,GI,Y,nullsub,jugarse,finite+simple
+4,28,4_28,2017,Cádiz,female,38,"English, French",Sale caminando con el bebé,masc,NA,agent,MC,D,NA,GI,Y,nullsub,salir,finite+simple
+4,29,4_29,2017,Cádiz,female,38,"English, French",y se encuentra con un señor barbudo.,masc,NA,pacient,MC,D,NA,GI,Y,nullsub,encontrarse,finite+simple
+4,30,4_30,2017,Cádiz,female,38,"English, French",Le pide,masc,NA,agent,MC,D,NA,GI,Y,nullsub,pedir,finite+simple
+4,31,4_31,2017,Cádiz,female,38,"English, French",que le sujete al bebé,masc,NA,agent,SC,IM,NA,NE,N,nullsub,sujetar,finite+simple
+4,33,4_33,2017,Cádiz,female,38,"English, French",y aprovecha la ocasión,masc,NA,agent,MC,D,NA,GI,N,nullsub,aprovechar,finite+simple
+4,35,4_35,2017,Cádiz,female,38,"English, French",El señor barbudo avista a la señora del carrito,masc,PRE,agent,MC,D,DEF,GI,N,dp,avisar,finite+simple
+4,37,4_37,2017,Cádiz,female,38,"English, French",deja de nuevo al bebé junto al otro.,masc,NA,agent,MC,D,NA,GI,Y,nullsub,dejar,finite+simple
+4,38,4_38,2017,Cádiz,female,38,"English, French","La señora, […] comienza a buscar al señor del sombrero y el bastón.",fem,PRE,agent,MC,D,DEF,GI,N,dp,comenzar,infinitive
+4,40,4_40,2017,Cádiz,female,38,"English, French",La casualidad hace,fem,PRE,agent,MC,D,DEF,NE,N,dp,hacer,finite+simple
+4,41,4_41,2017,Cádiz,female,38,"English, French",que pase,masc,NA,pacient,SC,D,NA,GI,N,nullsub,pasar,finite+simple
+4,42,4_42,2017,Cádiz,female,38,"English, French",por donde ella se encuentra,fem,PRE,pacient,SC,D,DEF,GI,N,pron,encontrarse,finite+simple
+4,43,4_43,2017,Cádiz,female,38,"English, French",y le devuelve al bebé.,masc,NA,agent,MC,D,NA,GI,Y,nullsub,devolver,finite+simple
+4,44,4_44,2017,Cádiz,female,38,"English, French","Finalmente, las circunstancias se rodean",fem,PRE,agent,MC,D,DEF,NE,N,dp,rodearse,finite+simple
+4,45,4_45,2017,Cádiz,female,38,"English, French",para que el señor se quede con el bebé,masc,PRE,pacient,SC,D,DEF,GI,N,dp,quedarse,finite+simple
+4,46,4_46,2017,Cádiz,female,38,"English, French",que porta una nota,masc,PRE,pacient,SC,D,DEF,GI,N,pron,llevar,finite+simple
+4,47,4_47,2017,Cádiz,female,38,"English, French",pidiendo que se le quiera y  cuide.,masc,NA,agent,SC,IM,NA,NE,N,nullsub,pedir,finite+simple
+5,1,5_1,2017,Almería,male,51,English,Va paseando por una calle,masc,NA,agent,MC,D,NA,NE,N,nullsub,pasear,periphrasis-gerund
+5,3,5_3,2017,Almería,male,51,English,y de los altos de los edificios tieran mas exombros,unknown,NA,agent,MC,D,NA,NE,N,nullsub,tirar,finite+simple
+5,4,5_4,2017,Almería,male,51,English,y el lo va esquivando como puede,masc,PRE,agent,MC,D,DEF,GI,N,pron,esquivar,periphrasis-gerund
+5,5,5_5,2017,Almería,male,51,English,se para,masc,NA,agent,MC,D,NA,GI,Y,nullsub,pararse,finite+simple
+5,6,5_6,2017,Almería,male,51,English,y se enciende un cigarro,masc,NA,agent,MC,D,NA,GI,Y,nullsub,encenderse,finite+simple
+5,7,5_7,2017,Almería,male,51,English,los guantes […] se los quita,masc,NA,agent,MC,D,NA,GI,Y,nullsub,quitarse,finite+simple
+5,8,5_8,2017,Almería,male,51,English,que lleva puestos,masc,NA,pacient,SC,D,NA,NE,N,nullsub,llevar,finite+simple
+5,9,5_9,2017,Almería,male,51,English,"y acaban en un cubo de basura junto con la cerilla,",masc,NA,pacient,MC,D,NA,GI,Y,nullsub,acabar,finite+simple
+5,10,5_10,2017,Almería,male,51,English,se vuelve,masc,NA,agent,MC,D,NA,GI,N,nullsub,volver,finite+simple
+5,11,5_11,2017,Almería,male,51,English,y ve a un niño abandonado,masc,NA,pacient,MC,D,NA,GI,Y,nullsub,ver,finite+simple
+5,12,5_12,2017,Almería,male,51,English,mira a su alrededor,masc,NA,agent,MC,D,NA,GI,Y,nullsub,mirar,finite+simple
+5,13,5_13,2017,Almería,male,51,English,y no ve a nadie,masc,NA,pacient,MC,D,NA,GI,Y,nullsub,ver,finite+simple
+5,14,5_14,2017,Almería,male,51,English,y comienza una aventura para ver,fem,POST,pacient,MC,D,INDEF,NE,N,dp,comenzar,finite+simple
+5,15,5_15,2017,Almería,male,51,English,donde lo puede dejar.,masc,NA,agent,SC,D,NA,GI,N,nullsub,dejar,modal
+5,16,5_16,2017,Almería,male,51,English,Primero va a ver por los edificios,masc,NA,pacient,MC,D,NA,GI,Y,nullsub,ver,finite+simple
+5,17,5_17,2017,Almería,male,51,English,y no ve nada,masc,NA,pacient,MC,D,NA,GI,Y,nullsub,ver,finite+simple
+5,18,5_18,2017,Almería,male,51,English,despues ve a una señora con un coche de niños con otro niño,masc,NA,pacient,MC,D,NA,GI,Y,nullsub,ver,finite+simple
+5,19,5_19,2017,Almería,male,51,English,e intenta dejarselo a ella,masc,NA,agent,MC,D,NA,GI,Y,nullsub,intentar,infinitive
+5,20,5_20,2017,Almería,male,51,English,la cual protesta,fem,PRE,agent,SC,D,DEF,NE,N,pron,protestar,finite+simple
+5,21,5_21,2017,Almería,male,51,English,y acaba llevandoselo de nuevo,masc,NA,pacient,MC,D,NA,GI,N,nullsub,llevar,periphrasis-gerund
+5,23,5_23,2017,Almería,male,51,English,al que engaña,masc,NA,agent,SC,D,NA,GI,N,nullsub,engañar,finite+simple
+5,24,5_24,2017,Almería,male,51,English,pero el niño al final acaba en el coche de la señora,masc,PRE,pacient,MC,D,DEF,NE,N,dp,acabar,finite+simple
+5,25,5_25,2017,Almería,male,51,English,lo deja el otro señor,masc,POST,agent,MC,D,DEF,GI,N,dp,dejar,finite+simple
+5,27,5_27,2017,Almería,male,51,English,la señora se lo vuelve a encasquetar.,fem,PRE,agent,MC,D,DEF,GI,N,dp,encasquetar,periphrasis-lexical
+5,28,5_28,2017,Almería,male,51,English,Acaba sentado en la cera con el niño,masc,NA,pacient,MC,D,NA,GI,N,nullsub,acabar,finite+simple
+5,29,5_29,2017,Almería,male,51,English,y saca un papel,masc,NA,agent,MC,D,NA,GI,Y,nullsub,sacar,finite+simple
+6,1,6_1,2017,Valencia,female,23,"English, Chinese",El vídeo incluye una escena con el famoso actor cómico y director de cine británico Charles Chaplin.,masc,PRE,pacient,MC,D,DEF,NE,N,dp,incluir,finite+simple
+6,3,6_3,2017,Valencia,female,23,"English, Chinese",el personaje se encuentra en una zona en ruinas,masc,PRE,pacient,MC,D,DEF,NE,N,dp,encontrarse,finite+simple
+6,4,6_4,2017,Valencia,female,23,"English, Chinese",",, mientras enciende un cigarro.",masc,NA,agent,SC,D,NA,GI,Y,nullsub,encender,finite+simple
+6,5,6_5,2017,Valencia,female,23,"English, Chinese","En una esquina, encuentra a un bebé abandonado.",masc,NA,agent,MC,D,NA,GI,Y,nullsub,encontrar,finite+simple
+6,7,6_7,2017,Valencia,female,23,"English, Chinese",el personaje piensa,masc,PRE,agent,MC,D,DEF,GI,Y,dp,pensar,finite+simple
+6,8,6_8,2017,Valencia,female,23,"English, Chinese",que la mujer lo ha abandonado,fem,PRE,agent,SC,D,DEF,NE,N,dp,abandonar,finite+simple
+6,9,6_9,2017,Valencia,female,23,"English, Chinese",así que la acusa de ello.,fem,NA,agent,MC,D,NA,GI,N,nullsub,acusar,finite+simple
+6,10,6_10,2017,Valencia,female,23,"English, Chinese","La mujer, enfadada, le devuelve al niño.",fem,PRE,agent,MC,D,DEF,GI,N,dp,enfadar,finite+simple
+6,13,6_13,2017,Valencia,female,23,"English, Chinese",el bebé regresa con la mujer del principio,masc,PRE,agent,MC,D,DEF,NE,N,dp,regresar,finite+simple
+6,14,6_14,2017,Valencia,female,23,"English, Chinese","que, enfadada, se lo devuelve al protagonista una segunda vez.",fem,PRE,agent,SC,D,DEF,GI,N,pron,enfadarse,finite+simple
+6,15,6_15,2017,Valencia,female,23,"English, Chinese",Todo esto ocurre bajo la atenta mirada de un policía.,unknown,PRE,agent,MC,D,DEF,NE,N,pron,ocurrir,finite+simple
+6,16,6_16,2017,Valencia,female,23,"English, Chinese","Agotado, Chaplin se sienta en el bordillo de la acera",masc,PRE,agent,MC,D,DEF,GI,N,dp,sentarse,finite+simple
+6,17,6_17,2017,Valencia,female,23,"English, Chinese",y descubre una nota bajo los ropajes del bebé:,masc,NA,pacient,MC,D,NA,GI,Y,nullsub,descubrir,finite+simple
+6,18,6_18,2017,Valencia,female,23,"English, Chinese",es un niño huérfano.,masc,POST,pacient,MC,D,INDEF,GI,N,dp,ser,finite+simple
+6,19,6_19,2017,Valencia,female,23,"English, Chinese","Conmovido, Chaplin decide quedarse con él.",masc,PRE,agent,MC,D,DEF,GI,N,dp,decidir,infinitive
+7,1,7_1,2017,Barcelona,male,29,"Catalan, English",El personaje principal está paseando por las calles de una ciudad.,masc,PRE,agent,MC,D,DEF,NE,N,dp,pasear,periphrasis-gerund
+7,2,7_2,2017,Barcelona,male,29,"Catalan, English",Está en ruinas,masc,NA,pacient,MC,D,NA,GI,Y,nullsub,estar,finite+simple
+7,3,7_3,2017,Barcelona,male,29,"Catalan, English",y la gente lanza basura y restos a la calle.,fem,PRE,agent,MC,D,DEF,NE,N,dp,lanzar,finite+simple
+7,4,7_4,2017,Barcelona,male,29,"Catalan, English",El hombre se encuentra a un bebé tirado en la calle.,masc,PRE,pacient,MC,D,DEF,GI,N,dp,encontrarse,finite+simple
+7,5,7_5,2017,Barcelona,male,29,"Catalan, English",Lo coge e intenta deshacerse de él.,masc,NA,agent,MC,D,NA,GI,Y,nullsub,coger,finite+simple
+7,6,7_6,2017,Barcelona,male,29,"Catalan, English",Lo intenta dejar en el carrito de una mujer,masc,NA,agent,MC,D,NA,GI,Y,nullsub,intentar,infinitive
+7,7,7_7,2017,Barcelona,male,29,"Catalan, English",que ya tiene otro bebé,fem,PRE,pacient,SC,D,DEF,GI,N,pron,tener,finite+simple
+7,8,7_8,2017,Barcelona,male,29,"Catalan, English",y esta lo pilla.,fem,PRE,agent,MC,D,DEF,GI,Y,pron,pillar,finite+simple
+7,9,7_9,2017,Barcelona,male,29,"Catalan, English",Luego lo intenta dejar en el sitio,masc,NA,agent,MC,D,NA,GI,N,nullsub,intentar,infinitive
+7,10,7_10,2017,Barcelona,male,29,"Catalan, English",donde lo encontró.,masc,NA,agent,SC,D,NA,GI,Y,nullsub,encontrar,finite+simple
+7,11,7_11,2017,Barcelona,male,29,"Catalan, English","Sin embargo, un policia lo pilla",masc,PRE,agent,MC,D,INDEF,NE,N,dp,pillar,finite+simple
+7,12,7_12,2017,Barcelona,male,29,"Catalan, English",y tiene que disimular.,masc,NA,agent,MC,D,NA,GI,N,nullsub,disimular,modal
+7,14,7_14,2017,Barcelona,male,29,"Catalan, English",que no es suyo,masc,NA,pacient,SC,D,NA,GI,N,nullsub,ser,finite+simple
+7,15,7_15,2017,Barcelona,male,29,"Catalan, English",pero que parece,unknown,PRE,pacient,SC,D,DEF,GI,Y,pron,parecer,finite+simple
+7,16,7_16,2017,Barcelona,male,29,"Catalan, English",que lo sea.,masc,NA,pacient,SC,D,NA,GI,Y,nullsub,ser,finite+simple
+7,17,7_17,2017,Barcelona,male,29,"Catalan, English",Incluso intenta dárselo aun hombre mayor,masc,NA,agent,MC,D,NA,GI,N,nullsub,intentar,infinitive
+7,18,7_18,2017,Barcelona,male,29,"Catalan, English",que pasea por la calle,masc,PRE,pacient,SC,D,DEF,GI,N,pron,pasear,finite+simple
+7,19,7_19,2017,Barcelona,male,29,"Catalan, English",pero este a su vez lo vuelve a dejar en el carrito de la mujer de antes.,masc,PRE,agent,MC,D,DEF,GI,N,pron,dejar,Periphrasis-lexical
+7,20,7_20,2017,Barcelona,male,29,"Catalan, English",Esta lo ve,fem,PRE,pacient,MC,D,DEF,GI,N,pron,ver,finite+simple
+7,21,7_21,2017,Barcelona,male,29,"Catalan, English",y pilla al personaje principal.,fem,NA,agent,MC,D,NA,GI,Y,nullsub,pillar,finite+simple
+7,22,7_22,2017,Barcelona,male,29,"Catalan, English",Este piensa en tirarlo por la claveguera,masc,PRE,agent,MC,D,DEF,GI,N,pron,pensar,finite+simple
+7,23,7_23,2017,Barcelona,male,29,"Catalan, English",pero al final encuentra una nota,masc,NA,agent,MC,D,NA,GI,Y,nullsub,encontrar,finite+simple
+7,24,7_24,2017,Barcelona,male,29,"Catalan, English",que dice,fem,PRE,agent,SC,D,DEF,GI,N,pron,decir,finite+simple
+7,25,7_25,2017,Barcelona,male,29,"Catalan, English",que han de cuidarlo y darle mimos.,unknown,NA,agent,SC,D,NA,GI,N,nullsub,cuidar,modal
+7,27,7_27,2017,Barcelona,male,29,"Catalan, English",que el hombre se lo quedará,masc,PRE,pacient,SC,D,DEF,GI,N,dp,quedarse,finite+simple
+7,28,7_28,2017,Barcelona,male,29,"Catalan, English",aunque el final es ambiguo.,masc,PRE,pacient,SC,D,DEF,GI,N,dp,ser,finite+simple
+8,2,8_2,2017,Valencia,female,40,"Valencian, French",El personaje Charlot pasea por las calles de un barrio,masc,PRE,pacient,MC,D,DEF,NE,N,dp,pasear,finite+simple
+8,3,8_3,2017,Valencia,female,40,"Valencian, French",donde basuras y escombros son arrojados por las ventanas.,unknown,PRE,agent,SC,D,DEF,NE,N,dp,arrojar,passive
+8,4,8_4,2017,Valencia,female,40,"Valencian, French",Al lado de un cubo de basura encuentra un bebé abandonado,masc,NA,pacient,MC,D,NA,GI,N,nullsub,encontrar,finite+simple
+8,5,8_5,2017,Valencia,female,40,"Valencian, French",cuando ve a una mujer,masc,NA,pacient,SC,D,NA,GI,Y,nullsub,ver,finite+simple
+8,7,8_7,2017,Valencia,female,40,"Valencian, French",la identifica erróneamente como la madre o como una persona,masc,NA,agent,MC,D,NA,GI,N,nullsub,identificar,finite+simple
+8,8,8_8,2017,Valencia,female,40,"Valencian, French",que estará deseosa de quedárselo/a,fem,PRE,pacient,SC,D,DEF,GI,N,pron,estar,finite+simple
+8,9,8_9,2017,Valencia,female,40,"Valencian, French",pero se equivoca en su suposición.,masc,NA,pacient,MC,D,NA,GI,N,nullsub,equivocarse,finite+simple
+8,10,8_10,2017,Valencia,female,40,"Valencian, French","A partir de ahí, vemos sus infructuosos intentos por deshacerse de él",masc,NA,pacient,MC,D,NA,NE,N,nullsub,ver,finite+simple
+8,11,8_11,2017,Valencia,female,40,"Valencian, French",hasta que al final una nota encontrada entre las ropas del bebé acaba enterneciéndolo,fem,PRE,agent,SC,D,DEF,NE,N,dp,enternecer,periphrasis-gerund
+8,12,8_12,2017,Valencia,female,40,"Valencian, French",y decide quedarse con él.,masc,NA,agent,MC,D,NA,GI,N,nullsub,decidir,infinitive
+9,1,9_1,2018,Barcelona,male,44,"Catalan, English",El protagonista avanza hacia la cámara,masc,PRE,agent,MC,D,DEF,NE,N,dp,avanzar,finite+simple
+9,2,9_2,2018,Barcelona,male,44,"Catalan, English","que pasa por la calle,",fem,NA,pacient,SC,D,NA,GI,N,nullsub,pasar,finite+simple
+9,3,9_3,2018,Barcelona,male,44,"Catalan, English",y se encuentra con un bebé abandonado.,masc,NA,pacient,MC,D,NA,GI,N,nullsub,encontrar,finite+simple
+9,4,9_4,2018,Barcelona,male,44,"Catalan, English",Tras intenta desvincularse de este,masc,NA,agent,MC,D,NA,GI,Y,nullsub,intentar,infinitive
+9,6,9_6,2018,Barcelona,male,44,"Catalan, English",decide quedárselo,masc,NA,agent,MC,D,NA,GI,Y,nullsub,decidir,infinitive
+9,8,9_8,2018,Barcelona,male,44,"Catalan, English",en la que pone algo así como,fem,NA,agent,SC,D,NA,GI,N,nullsub,poner,finite+simple
+10,1,10_1,2017,Bilbao,female,32,"Euskera, English",Chaplin está caminando por las calles,masc,PRE,agent,MC,D,DEF,NE,N,dp,caminar,periphrasis-gerund
+10,2,10_2,2017,Bilbao,female,32,"Euskera, English",y desde una ventana tiran basura muy cerca de él.,unknown,NA,agent,MC,D,NA,NE,N,nullsub,tiran,finite+simple
+10,3,10_3,2017,Bilbao,female,32,"Euskera, English",Maldice a la persona,masc,NA,agent,MC,D,NA,GI,N,nullsub,maldecir,finite+simple
+10,4,10_4,2017,Bilbao,female,32,"Euskera, English",que le ha tirado basura,fem,PRE,agent,SC,D,DEF,GI,N,pron,tirar,finite+simple
+10,5,10_5,2017,Bilbao,female,32,"Euskera, English",y continúa con su camino.,masc,NA,agent,MC,D,NA,GI,N,nullsub,continuar,finite+simple
+10,6,10_6,2017,Bilbao,female,32,"Euskera, English","Seguido, pasa por un cubo de basura",masc,NA,pacient,MC,D,NA,GI,Y,nullsub,pasar,finite+simple
+10,7,10_7,2017,Bilbao,female,32,"Euskera, English",y alguien vuelve a tirar basura muy cerca de él,unknown,PRE,agent,MC,D,INDEF,NE,N,pron,tirar,Periphrasis-lexical
+10,8,10_8,2017,Bilbao,female,32,"Euskera, English",Chaplin vuelve a maldecir a la persona,masc,PRE,agent,MC,D,DEF,GI,N,dp,maldecir,Periphrasis-lexical
+10,9,10_9,2017,Bilbao,female,32,"Euskera, English",que ha tirado la basura,fem,PRE,agent,SC,D,DEF,GI,N,pron,tirar,finite+simple
+10,10,10_10,2017,Bilbao,female,32,"Euskera, English",y sigue con su camino.,masc,NA,agent,MC,D,NA,GI,N,nullsub,seguir,finite+simple
+10,11,10_11,2017,Bilbao,female,32,"Euskera, English",A la vuelta de la esquina se encuentra con un bebé,masc,NA,pacient,MC,D,NA,GI,Y,nullsub,encontrarse,finite+simple
+10,12,10_12,2017,Bilbao,female,32,"Euskera, English",que parece,masc,PRE,pacient,SC,D,DEF,GI,N,pron,parecer,finite+simple
+10,13,10_13,2017,Bilbao,female,32,"Euskera, English",que está abandonado.,masc,NA,pacient,SC,D,NA,GI,Y,nullsub,estar,finite+simple
+10,14,10_14,2017,Bilbao,female,32,"Euskera, English",Lo coge,masc,NA,agent,MC,D,NA,GI,N,nullsub,coger,finite+simple
+10,15,10_15,2017,Bilbao,female,32,"Euskera, English",e intenta averiguar,masc,NA,agent,MC,D,NA,GI,Y,nullsub,intentar,infinitive
+10,16,10_16,2017,Bilbao,female,32,"Euskera, English",de dónde ha salido.,masc,NA,agent,SC,D,NA,GI,N,nullsub,salir,finite+simple
+10,17,10_17,2017,Bilbao,female,32,"Euskera, English",En ese momento aparece una mujer con un carrito de bebé y con un bebé dentro,fem,POST,pacient,MC,D,INDEF,NE,N,dp,aparecer,finite+simple
+10,18,10_18,2017,Bilbao,female,32,"Euskera, English",y Chaplin se acerca a la señora,masc,PRE,agent,MC,D,DEF,GI,N,dp,acercarse,finite+simple
+10,19,10_19,2017,Bilbao,female,32,"Euskera, English",asumiendo que el bebé […] es suyo,masc,PRE,pacient,SC,D,DEF,GI,N,dp,ser,finite+simple
+10,20,10_20,2017,Bilbao,female,32,"Euskera, English",que acaba de encontrar,masc,PRE,pacient,SC,D,DEF,GI,N,pron,encontrar,Periphrasis-lexical
+10,21,10_21,2017,Bilbao,female,32,"Euskera, English",y se lo mete en el carro.,masc,NA,agent,MC,D,NA,GI,Y,nullsub,meter,finite+simple
+10,22,10_22,2017,Bilbao,female,32,"Euskera, English",Chaplin y la señora discuten,both,PRE,agent,MC,D,DEF,GI,N,dp,discutir,finite+simple
+10,23,10_23,2017,Bilbao,female,32,"Euskera, English",y la señora obliga a Chaplin a sacar el bebé de su carro,fem,PRE,agent,MC,D,DEF,GI,N,dp,obligar,infinitive
+10,24,10_24,2017,Bilbao,female,32,"Euskera, English",ya que no es suyo,masc,NA,pacient,MC,D,NA,GI,N,nullsub,ser,finite+simple
+10,25,10_25,2017,Bilbao,female,32,"Euskera, English",por lo que Chaplin decide dejar al bebé,masc,PRE,agent,SC,D,DEF,GI,N,dp,decidir,infinitive
+10,26,10_26,2017,Bilbao,female,32,"Euskera, English",donde lo encontró.,masc,NA,agent,SC,D,NA,GI,Y,nullsub,encontrar,finite+simple
+10,27,10_27,2017,Bilbao,female,32,"Euskera, English",Sin embargo tiene que volver a cogerlo,masc,NA,agent,MC,D,NA,GI,Y,nullsub,volver,modal
+10,28,10_28,2017,Bilbao,female,32,"Euskera, English",ya que justo aparece un policía.,masc,POST,pacient,MC,D,INDEF,NE,N,dp,aparecer,finite+simple
+10,29,10_29,2017,Bilbao,female,32,"Euskera, English","Chaplin, con el bebé en brazos, va caminando por la calle sin saber qué hacer con el bebé.",masc,PRE,agent,MC,D,DEF,GI,N,dp,caminar,prephrasis+gerund
+10,31,10_31,2017,Bilbao,female,32,"Euskera, English",Para a un señor,masc,NA,agent,MC,D,NA,GI,Y,nullsub,parar,finite+simple
+10,32,10_32,2017,Bilbao,female,32,"Euskera, English",que se encuentra caminando con la excusa de que,masc,PRE,pacient,SC,D,DEF,GI,N,pron,encontrarse,finite+simple
+10,33,10_33,2017,Bilbao,female,32,"Euskera, English","que tiene que atarse los cordones de los zapatos,",masc,NA,agent,SC,D,NA,GI,N,nullsub,atarse,modal
+10,34,10_34,2017,Bilbao,female,32,"Euskera, English",le deja al bebé.,masc,NA,agent,MC,D,NA,GI,Y,nullsub,dejar,finite+simple
+10,35,10_35,2017,Bilbao,female,32,"Euskera, English","En ese momento, Chaplin aprovecha para marcharse corriendo",masc,PRE,agent,MC,D,DEF,GI,Y,dp,aprovechar,finite+simple
+10,37,10_37,2017,Bilbao,female,32,"Euskera, English",El señor no sabe,masc,PRE,agent,MC,D,DEF,NE,N,dp,saber,finite+simple
+10,39,10_39,2017,Bilbao,female,32,"Euskera, English",se encuentra con un carrito de bebé fuera de una tienda.,masc,NA,pacient,MC,D,NA,GI,Y,nullsub,encontrarse,finite+simple
+10,40,10_40,2017,Bilbao,female,32,"Euskera, English",Precisamente este carrito de bebé es el de la señora,masc,PRE,pacient,MC,D,DEF,GI,N,dp,ser,finite+simple
+10,41,10_41,2017,Bilbao,female,32,"Euskera, English",con la que se ha encontrado Chaplin anteriormente,fem,POST,pacient,SC,D,DEF,GI,N,dp,encontrar,finite+simple
+10,42,10_42,2017,Bilbao,female,32,"Euskera, English",así que el señor deja al bebé en el carrito,masc,PRE,agent,MC,D,DEF,GI,N,dp,dejar,finite+simple
+10,43,10_43,2017,Bilbao,female,32,"Euskera, English",y se marcha.,masc,NA,agent,MC,D,NA,GI,Y,nullsub,marcharse,finite+simple
+10,44,10_44,2017,Bilbao,female,32,"Euskera, English","La señora, […] se enfada",fem,PRE,agent,MC,D,DEF,GI,N,dp,enfadarse,finite+simple
+10,46,10_46,2017,Bilbao,female,32,"Euskera, English",y justo en ese momento aparece Chaplin,masc,POST,pacient,MC,D,DEF,GI,N,dp,aparecer,finite+simple
+10,48,10_48,2017,Bilbao,female,32,"Euskera, English",por lo que la señora se lo devuelve,fem,PRE,agent,SC,D,DEF,GI,N,dp,devolver,finite+simple
+10,50,10_50,2017,Bilbao,female,32,"Euskera, English","que había colocado el bebé en su carro,",masc,NA,agent,SC,D,NA,GI,Y,nullsub,colocar,finite+simple
+10,51,10_51,2017,Bilbao,female,32,"Euskera, English",y a Chaplin no le queda otro remedio,masc,POST,pacient,MC,D,INDEF,NE,N,dp,quedar,finite+simple
+10,53,10_53,2017,Bilbao,female,32,"Euskera, English","Intenta deshacerse del bebé,",masc,NA,agent,MC,D,NA,GI,N,nullsub,intentar,infinitive
+10,55,10_55,2017,Bilbao,female,32,"Euskera, English",que sopesa la idea de dejarlo en una alcantarilla,fem,NA,agent,SC,D,NA,GI,Y,nullsub,sopesar,finite+simple
+10,56,10_56,2017,Bilbao,female,32,"Euskera, English",pero en se momento encuentra una nota entre las ropas del bebé,masc,NA,pacient,MC,D,NA,GI,Y,nullsub,encontrar,finite+simple
+10,57,10_57,2017,Bilbao,female,32,"Euskera, English",que dice que,fem,PRE,agent,SC,D,DEF,GI,N,pron,decir,finite+simple
+10,60,10_60,2017,Bilbao,female,32,"Euskera, English",que la nota logra enternecer a Chaplin,fem,PRE,agent,SC,D,DEF,NE,N,dp,lograr,infinitive
+10,61,10_61,2017,Bilbao,female,32,"Euskera, English",y decide adoptarlo.,masc,NA,agent,MC,D,NA,GI,N,nullsub,decidir,infinitive
+11,1,11_1,2017,Bilbao,female,32,"Euskera, English",Este vídeo comienza con el personaje de Chaplin,masc,PRE,pacient,MC,D,DEF,NE,N,dp,comenzar,finite+simple
+11,5,11_5,2017,Bilbao,female,32,"Euskera, English","En un plano detalle, Chaplin enseña su cajetilla de tabaco llena de cigarros a medio acabar",masc,PRE,agent,MC,D,DEF,GI,N,dp,ensenar,finite+simple
+11,7,11_7,2017,Bilbao,female,32,"Euskera, English",que son colillas ya usadas,fem,PRE,pacient,SC,D,DEF,NE,N,pron,ser,finite+simple
+11,8,11_8,2017,Bilbao,female,32,"Euskera, English",que él reutiliza.,masc,PRE,agent,SC,D,DEF,GI,N,pron,reutilizar,finite+simple
+11,9,11_9,2017,Bilbao,female,32,"Euskera, English","En ese momento, Chaplin descubre junto a la basura un bebé abandonado.",masc,PRE,pacient,MC,D,DEF,GI,Y,dp,descubrir,finite+simple
+11,10,11_10,2017,Bilbao,female,32,"Euskera, English",cuando pasa por ahí,masc,NA,pacient,SC,D,NA,GI,Y,nullsub,pasar,finite+simple
+11,11,11_11,2017,Bilbao,female,32,"Euskera, English",por lo que él no duda en acercarse y decirle a la mujer,masc,PRE,agent,SC,D,DEF,GI,Y,pron,dudar,finite+simple
+11,12,11_12,2017,Bilbao,female,32,"Euskera, English",que se le ha debido de caer.,masc,NA,pacient,SC,D,NA,GI,N,nullsub,caer,modal
+11,13,11_13,2017,Bilbao,female,32,"Euskera, English",A lo que la mujer responde de malas maneras,fem,PRE,agent,MC,D,DEF,NE,N,dp,responder,finite+simple
+11,14,11_14,2017,Bilbao,female,32,"Euskera, English",y Chaplin se ve obligado a tomar de nuevo consigo al bebé.,masc,PRE,pacient,MC,D,DEF,GI,N,dp,verse,finite+simple
+11,15,11_15,2017,Bilbao,female,32,"Euskera, English",Lo coge entre sus brazos justamente,masc,NA,agent,MC,D,NA,GI,Y,nullsub,coger,finite+simple
+11,16,11_16,2017,Bilbao,female,32,"Euskera, English",Como no sabe muy bien que hacer con él,masc,NA,agent,MC,D,NA,GI,Y,nullsub,saber,finite+simple
+11,17,11_17,2017,Bilbao,female,32,"Euskera, English","lo vuelve a dejar ,",masc,NA,agent,MC,D,NA,GI,Y,nullsub,dejar,periphrasis-lexical
+11,18,11_18,2017,Bilbao,female,32,"Euskera, English",que lo observa,masc,NA,agent,SC,D,NA,GI,Y,nullsub,observar,finite+simple
+11,19,11_19,2017,Bilbao,female,32,"Euskera, English","y por lo tanto, y de modo instintivo, lo recoge",masc,NA,agent,SC,D,NA,GI,Y,nullsub,recoger,finite+simple
+11,20,11_20,2017,Bilbao,female,32,"Euskera, English",de donde lo había dejado,masc,NA,agent,SC,D,NA,GI,Y,nullsub,dejar,finite+simple
+11,22,11_22,2017,Bilbao,female,32,"Euskera, English",donde lo ha encontrado,masc,NA,agent,SC,D,NA,GI,Y,nullsub,encontrar,finite+simple
+11,23,11_23,2017,Bilbao,female,32,"Euskera, English","Finalmente, Chaplin no tiene otro remedio",masc,PRE,pacient,MC,D,DEF,GI,Y,dp,tener,finite+simple
+12,1,12_1,2017,Barcelona,female,34,"Catalan, English",Este vídeo es una secuencia de una pelicula muda de Charles Chaplin.,masc,PRE,pacient,MC,D,DEF,NE,N,dp,tener,finite+simple
+12,2,12_2,2017,Barcelona,female,34,"Catalan, English","En ella, vemos como este va andando por la calle -con su característica manera de caminar-",fem,NA,pacient,MC,D,NA,GI,N,nullsub,ver,finite+simple
+12,3,12_3,2017,Barcelona,female,34,"Catalan, English",y se encuentra a un recién nacido tirado y abandonado.,masc,NA,pacient,MC,D,NA,GI,N,nullsub,encontrarse,finite+simple
+12,4,12_4,2017,Barcelona,female,34,"Catalan, English",Al principio cree,masc,NA,agent,MC,D,NA,GI,Y,nullsub,creer,finite+simple
+12,5,12_5,2017,Barcelona,female,34,"Catalan, English",que ha caído de un edificio,masc,NA,pacient,SC,D,NA,GI,N,nullsub,caer,finite+simple
+12,6,12_6,2017,Barcelona,female,34,"Catalan, English",pues acaba de ver,masc,NA,pacient,MC,D,NA,GI,N,nullsub,ver,periphrasis-lexical
+12,7,12_7,2017,Barcelona,female,34,"Catalan, English",cómo caían unos escombros,masc,POST,pacient,SC,D,DEF,NE,N,dp,caer,finite+simple
+12,8,12_8,2017,Barcelona,female,34,"Catalan, English",pero ve a una mujer buscando algo,masc,NA,pacient,MC,D,NA,GI,N,nullsub,ver,finite+simple
+12,9,12_9,2017,Barcelona,female,34,"Catalan, English",y decide darle al niño.,masc,NA,agent,MC,D,NA,GI,Y,nullsub,decidir,infinitive
+12,11,12_11,2017,Barcelona,female,34,"Catalan, English",que el bebé no es suyo,masc,PRE,pacient,MC,D,DEF,NE,N,dp,ser,finite+simple
+12,12,12_12,2017,Barcelona,female,34,"Catalan, English",así que Charles Chaplin decide dejarlo,masc,PRE,agent,MC,D,DEF,GI,N,dp,decidir,infinitive
+12,13,12_13,2017,Barcelona,female,34,"Catalan, English",donde estaba,masc,NA,pacient,SC,D,NA,GI,N,nullsub,estar,finite+simple
+12,14,12_14,2017,Barcelona,female,34,"Catalan, English",pero justo en ese momento lo ve un policía,masc,PRE,pacient,MC,D,INDEF,NE,N,dp,ver,finite+simple
+12,15,12_15,2017,Barcelona,female,34,"Catalan, English",quien reprueba su actitud.,masc,PRE,agent,SC,D,DEF,GI,Y,pron,reprobar,finite+simple
+12,16,12_16,2017,Barcelona,female,34,"Catalan, English",El protagonista vuelve a coger al niño,masc,PRE,agent,MC,D,DEF,GI,N,dp,volver,finite+simple
+12,17,12_17,2017,Barcelona,female,34,"Catalan, English",y se lo encasqueta a un viandante anciano,masc,NA,agent,MC,D,NA,GI,Y,nullsub,encasquetar,finite+simple
+12,18,12_18,2017,Barcelona,female,34,"Catalan, English",que intenta devolvérslo,masc,PRE,agent,SC,D,DEF,GI,N,pron,intentar,infinitive
+12,19,12_19,2017,Barcelona,female,34,"Catalan, English",pero no encuentra a Chaplin,masc,NA,agent,MC,D,NA,GI,Y,nullsub,encontrar,finite+simple
+12,20,12_20,2017,Barcelona,female,34,"Catalan, English","Casualmente, el señor ve un carrito de un niño",masc,PRE,pacient,MC,D,DEF,NE,Y,dp,ver,finite+simple
+12,21,12_21,2017,Barcelona,female,34,"Catalan, English",y lo deja ahí,masc,NA,agent,MC,D,NA,GI,Y,nullsub,dejar,finite+simple
+12,22,12_22,2017,Barcelona,female,34,"Catalan, English",la dueña del carrito es la señora,fem,PRE,pacient,MC,D,DEF,NE,N,dp,ser,finite+simple
+12,23,12_23,2017,Barcelona,female,34,"Catalan, English",a la que Chaplin dejó al niño al principio,masc,PRE,agent,SC,D,DEF,GI,N,dp,dejar,finite+simple
+12,24,12_24,2017,Barcelona,female,34,"Catalan, English",justo este pasa por ahí,masc,PRE,pacient,MC,D,DEF,GI,Y,pron,pasar,finite+simple
+12,25,12_25,2017,Barcelona,female,34,"Catalan, English",la señora arma un revuelo,fem,PRE,agent,MC,D,DEF,GI,N,dp,armar,finite+simple
+12,26,12_26,2017,Barcelona,female,34,"Catalan, English",y Charles se lo tiene que volver a llevar.,masc,PRE,pacient,MC,D,DEF,GI,N,dp,llevar,modal+periphrasis-gerund
+12,27,12_27,2017,Barcelona,female,34,"Catalan, English",Se sienta en una acera a acunar al bebé,masc,NA,agent,MC,D,NA,GI,Y,nullsub,sentarse,finite+simple
+12,28,12_28,2017,Barcelona,female,34,"Catalan, English","y descubre que lleva encima una nota ,",masc,NA,pacient,MC,D,NA,GI,Y,nullsub,decubrir,nullsub
+12,29,12_29,2017,Barcelona,female,34,"Catalan, English",que dice,fem,PRE,agent,SC,D,DEF,GI,N,pron,decir,finite+simple
+12,31,12_31,2017,Barcelona,female,34,"Catalan, English",se apiada,masc,NA,agent,MC,D,NA,GI,N,nullsub,apiarse,finite+simple
+12,32,12_32,2017,Barcelona,female,34,"Catalan, English",y decide cuidarlo,masc,NA,agent,MC,D,NA,GI,Y,nullsub,decidir,infinitive
+12,34,12_34,2017,Barcelona,female,34,"Catalan, English",que el hombre se lo quedará,masc,PRE,pacient,SC,D,DEF,GI,N,dp,quedarse,finite+simple
+12,35,12_35,2017,Barcelona,female,34,"Catalan, English",aunque el final es ambiguo.,masc,PRE,pacient,SC,D,DEF,GI,N,dp,ser,finite+simple
+13,1,13_1,2017,Bilbao,male,35,"Euskera, English",Charles Chaplin se encuentra en un callejón paseando,masc,PRE,pacient,MC,D,DEF,NE,N,dp,encontrarse,finite+simple
+13,3,13_3,2017,Bilbao,male,35,"Euskera, English",descubre,masc,NA,pacient,MC,D,NA,GI,Y,nullsub,descubrir,finite+simple
+13,5,13_5,2017,Bilbao,male,35,"Euskera, English",según parece abandonado,masc,NA,pacient,SC,D,NA,GI,Y,nullsub,parecer,finite+simple
+13,6,13_6,2017,Bilbao,male,35,"Euskera, English",Le recoge,masc,NA,agent,MC,D,NA,GI,N,nullsub,recoger,finite+simple
+13,7,13_7,2017,Bilbao,male,35,"Euskera, English",y justo en ese instante pasa una mujer con un cochecito y otro bebé,fem,POST,pacient,MC,D,INDEF,NE,N,dp,pasar,finite+simple
+13,8,13_8,2017,Bilbao,male,35,"Euskera, English",se acerca a la mujer,masc,NA,agent,MC,D,NA,GI,N,nullsub,acercarse,finite+simple
+13,9,13_9,2017,Bilbao,male,35,"Euskera, English",y le da el bebé,masc,NA,agent,MC,D,NA,GI,Y,nullsub,dar,finite+simple
+13,11,13_11,2017,Bilbao,male,35,"Euskera, English",que ese bebé abandonado era de la mujer,masc,PRE,pacient,SC,D,DEF,GI,N,dp,ser,finite+simple
+13,12,13_12,2017,Bilbao,male,35,"Euskera, English",que se le había caido.,masc,PRE,pacient,SC,D,DEF,GI,Y,pron,caer,finite+simple
+13,13,13_13,2017,Bilbao,male,35,"Euskera, English",La mujer le dice,fem,PRE,agent,MC,D,DEF,GI,N,dp,decir,finite+simple
+13,14,13_14,2017,Bilbao,male,35,"Euskera, English",que no es suyo,masc,NA,pacient,SC,D,NA,GI,N,nullsub,ser,finite+simple
+13,15,13_15,2017,Bilbao,male,35,"Euskera, English",y Charles coge de nuevo al recién nacido,masc,PRE,agent,MC,D,DEF,GI,N,dp,coger,finite+simple
+13,16,13_16,2017,Bilbao,male,35,"Euskera, English",y pretende dejarle,masc,NA,agent,MC,D,NA,GI,Y,nullsub,pretender,infinitive
+13,17,13_17,2017,Bilbao,male,35,"Euskera, English",donde le había encontrado con la mala suerte,masc,NA,agent,SC,D,NA,GI,Y,nullsub,encontrar,finite+simple
+13,18,13_18,2017,Bilbao,male,35,"Euskera, English",de que en ese momento pasa un alguacil.,masc,POST,pacient,SC,D,INDEF,NE,N,dp,pasar,finite+simple
+13,19,13_19,2017,Bilbao,male,35,"Euskera, English",Charles sigue andando,masc,PRE,agent,MC,D,DEF,GI,N,dp,andar,periphrasis-gerund
+13,20,13_20,2017,Bilbao,male,35,"Euskera, English",y le pide a un hombre,masc,NA,agent,MC,D,NA,GI,Y,nullsub,pedir,finite+simple
+13,21,13_21,2017,Bilbao,male,35,"Euskera, English",que sujete al bebé,masc,NA,agent,SC,IM,NA,GI,N,nullsub,sujetar,finite+simple
+13,23,13_23,2017,Bilbao,male,35,"Euskera, English","que éste, el adulto, está distraido,",masc,PRE,pacient,SC,D,DEF,GI,N,pron,estar,finite+simple
+13,24,13_24,2017,Bilbao,male,35,"Euskera, English",Charles huye.,masc,PRE,agent,MC,D,DEF,GI,N,dp,huír,finite+simple
+13,25,13_25,2017,Bilbao,male,35,"Euskera, English",El hombre  lo ve,masc,PRE,pacient,MC,D,DEF,NE,N,dp,ver,finite+simple
+13,26,13_26,2017,Bilbao,male,35,"Euskera, English",a quien Charles le ha pasado el bebé,masc,PRE,agent,SC,D,DEF,GI,N,dp,pasar,finite+simple
+13,27,13_27,2017,Bilbao,male,35,"Euskera, English",y le deja ahí junto a otro niño,masc,NA,agent,MC,D,NA,GI,Y,nullsub,dejar,finite+simple
+13,28,13_28,2017,Bilbao,male,35,"Euskera, English","cuando sale la madre,",fem,POST,agent,SC,D,DEF,GI,N,dp,salir,finite+simple
+13,29,13_29,2017,Bilbao,male,35,"Euskera, English","que es la misma mujer de antes,",fem,PRE,pacient,SC,D,DEF,GI,Y,dp,ser,finite+simple
+13,30,13_30,2017,Bilbao,male,35,"Euskera, English",ve asombrada,fem,NA,pacient,MC,D,NA,GI,Y,nullsub,verse,finite+simple
+13,31,13_31,2017,Bilbao,male,35,"Euskera, English",que ahora tiene dos niños en el cochecito.,fem,NA,pacient,SC,D,NA,GI,Y,nullsub,tener,finite+simple
+13,32,13_32,2017,Bilbao,male,35,"Euskera, English",En ese instante Charles pasa por ahí,masc,PRE,pacient,MC,D,DEF,GI,N,dp,pasar,finite+simple
+13,33,13_33,2017,Bilbao,male,35,"Euskera, English",y la mujer le para a mamporrazos,fem,PRE,agent,MC,D,DEF,GI,N,dp,parar,finite+simple
+13,34,13_34,2017,Bilbao,male,35,"Euskera, English","y le obliga a coger al bebé,",fem,NA,agent,MC,D,NA,GI,Y,nullsub,obligar,infinitive
+13,36,13_36,2017,Bilbao,male,35,"Euskera, English","Finalmente, Charles descubre un mensaje dentro de la ropa del recién nacido",masc,PRE,pacient,MC,D,DEF,GI,N,dp,descubrir,finite+simple
+13,37,13_37,2017,Bilbao,male,35,"Euskera, English",que dice,masc,PRE,agent,SC,D,DEF,GI,N,pron,decir,finite+simple
+13,39,13_39,2017,Bilbao,male,35,"Euskera, English","ante este mensaje, Charles decide darle amor y cuidados al bebé.",masc,PRE,agent,MC,D,DEF,GI,N,dp,decidir,infinitive
+15,1,15_1,2017,Madrid,female,35,"English, German",La historia narra el encuentro fortuito,fem,PRE,agent,MC,D,DEF,NE,N,dp,narrar,finite+simple
+15,1,15_1,2017,Madrid,female,35,"English, German","Pero el cariz cómico del corto hace al telespectador consciente ,",masc,PRE,agent,MC,D,DEF,NE,N,dp,hacer,finite+simple
+15,2,15_2,2017,Madrid,female,35,"English, German",que un hombre aparentemente despistado hace de un bebé,masc,PRE,agent,SC,D,INDEF,NE,N,dp,hacer,finite+simple
+15,2,15_2,2017,Madrid,female,35,"English, German","de que no va a volver a tardar en dejárselo a otro personaje,",masc,NA,agent,SC,D,NA,GI,N,nullsub,volver,periphrasis-lexical
+15,3,15_3,2017,Madrid,female,35,"English, German","aunque sea mediante el ingenuo engaño,",masc,NA,pacient,SC,D,NA,GI,N,nullsub,ser,finite+simple
+15,3,15_3,2017,Madrid,female,35,"English, German",que parece haber sido abandonado poco antes de su hallazgo por el hombre.,masc,PRE,pacient,SC,D,DEF,GI,Y,pron,parecer,infinitive
+15,4,15_4,2017,Madrid,female,35,"English, German",El cortometraje comienza con una secuencia,masc,PRE,pacient,MC,D,DEF,NE,N,dp,comenzar,finite+simple
+15,5,15_5,2017,Madrid,female,35,"English, German",cuando se lo entrega a un hombre cojo,masc,NA,agent,SC,D,NA,GI,N,nullsub,entregar,finite+simple
+15,5,15_5,2017,Madrid,female,35,"English, German",en la que dicho hombre va paseando tranquilamente desde el fondo de la escena hacia la cámara/espectador.,masc,PRE,agent,SC,D,DEF,GI,N,dp,pasear,periphrasis-gerund
+15,6,15_6,2017,Madrid,female,35,"English, German",(que no es otro más que Charlie Chaplin),masc,PRE,pacient,SC,D,DEF,GI,N,dp,ser,finite+simple
+15,6,15_6,2017,Madrid,female,35,"English, German",que […] no puede salir corriendo detrás de él... con el niño en brazos.,masc,PRE,agent,SC,D,DEF,GI,N,pron,salir,modal
+15,7,15_7,2017,Madrid,female,35,"English, German","Según se acerca, ,",masc,NA,agent,SC,D,NA,GI,Y,nullsub,acercarse,finite+simple
+15,8,15_8,2017,Madrid,female,35,"English, German",se va fijando la vista en el atrezzo,fem,NA,agent,MC,D,NA,GI,Y,nullsub,fijar,periphrasis-gerund
+15,8,15_8,2017,Madrid,female,35,"English, German","Lo que a lo mejor ya no es tan esperable  y,",unknown,PRE,pacient,MC,D,DEF,GI,N,pron,ser,finite+simple
+15,9,15_9,2017,Madrid,female,35,"English, German",que aparece en primer plano,masc,PRE,pacient,SC,D,DEF,GI,N,pron,aparecer,finite+simple
+15,9,15_9,2017,Madrid,female,35,"English, German",es que el susodicho hombre del bastón una vez se da cuenta de,masc,PRE,pacient,MC,D,DEF,GI,N,dp,darse,Periphrasis-lexical
+15,10,15_10,2017,Madrid,female,35,"English, German","esto es,",unknown,PRE,pacient,MC,D,DEF,GI,N,pron,ser,finite+simple
+15,11,15_11,2017,Madrid,female,35,"English, German",que ha perdido completamente de vista al protagonista,masc,NA,pacient,SC,D,NA,GI,N,nullsub,perder,finite+simple
+15,12,15_12,2017,Madrid,female,35,"English, German",acaba depositándolo cuidadosamente en el carrito del bebé de la señora,masc,NA,agent,MC,D,NA,GI,N,nullsub,despositar,periphrasis-gerund
+15,13,15_13,2017,Madrid,female,35,"English, German","De pronto, caen hojas (o algo semejante) supuestamente del cielo casi encima del protagonista,,",fem,POST,pacient,MC,D,INDEF,NE,N,dp,caer,finite+simple
+15,14,15_14,2017,Madrid,female,35,"English, German","que había al lado de los cubos de basura,",masc,PRE,pacient,SC,D,DEF,GI,N,pron,haber,finite+simple
+15,14,15_14,2017,Madrid,female,35,"English, German",lo que le hace mirar,masc,PRE,agent,SC,D,DEF,GI,N,pron,mirar,modal
+15,15,15_15,2017,Madrid,female,35,"English, German","que, casualmente, se halla en su camino por la ciudad,",masc,NA,agent,SC,D,DEF,GI,N,pron,hallarse,finite+simple
+15,15,15_15,2017,Madrid,female,35,"English, German",qué ha ocurrido y,unknown,PRE,agent,SC,D,INDEF,GI,N,pron,ocurrir,finite+simple
+15,16,15_16,2017,Madrid,female,35,"English, German","sin mayor preocupación, sacarse una caja de tabaco",masc,NA,agent,SC,D,NA,GI,N,nullsub,sacarse,finite+simple
+15,17,15_17,2017,Madrid,female,35,"English, German",desaparece de escena,masc,NA,pacient,MC,D,NA,GI,Y,nullsub,desaparecer,finite+simple
+15,18,15_18,2017,Madrid,female,35,"English, German",Justo cuando se enciende el cigarro,masc,NA,agent,SC,D,NA,GI,N,nullsub,encenderse,finite+simple
+15,18,15_18,2017,Madrid,female,35,"English, German",y entra en ella nuestro hombre,masc,POST,pacient,MC,D,DEF,GI,N,dp,entrar,finite+simple
+15,19,15_19,2017,Madrid,female,35,"English, German",que camina por delante de la vista del agente de la ley,masc,PRE,agent,SC,D,DEF,GI,Y,pron,caminar,finite+simple
+15,19,15_19,2017,Madrid,female,35,"English, German",se da cuenta,masc,NA,pacient,MC,D,NA,GI,Y,nullsub,darse,periphrasis-lexical
+15,20,15_20,2017,Madrid,female,35,"English, German",como si no pasara nada,masc,POST,pacient,SC,D,INDEF,GI,N,pron,pasar,finite+simple
+15,21,15_21,2017,Madrid,female,35,"English, German","que, para su sorpresa, le parece caído del cielo junto con el resto de las posibles hojas.",masc,PRE,pacient,SC,D,DEF,GI,Y,pron,parecer,finite+simple
+15,22,15_22,2017,Madrid,female,35,"English, German",La primera idea […] es,fem,PRE,pacient,MC,D,DEF,NE,N,dp,ser,finite+simple
+15,22,15_22,2017,Madrid,female,35,"English, German",en que se encuentra el carrito con los dos bebés...,masc,POST,pacient,SC,D,DEF,GI,N,dp,encontrar,finite+simple
+15,23,15_23,2017,Madrid,female,35,"English, German",y la señora enfurecida […] sale corriendo a darle una paliza repleta de paraguazos.,fem,PRE,agent,MC,D,DEF,GI,N,dp,salir,periphrasis-gerund
+15,24,15_24,2017,Madrid,female,35,"English, German",que le viene a la cabeza,masc,PRE,pacient,SC,D,DEF,NA,Y,pron,venir,finite+simple
+15,24,15_24,2017,Madrid,female,35,"English, German",que le ha visto,unknown,PRE,pacient,SC,D,DEF,GI,Y,pron,ver,finite+simple
+15,25,15_25,2017,Madrid,female,35,"English, German","De nuevo aparece el agente de la ley  ,",masc,POST,pacient,MC,D,DEF,GI,N,dp,aparecer,finite+simple
+15,26,15_26,2017,Madrid,female,35,"English, German",que por su sola autoridad impone una solución:,masc,PRE,agent,SC,D,DEF,GI,Y,pron,imponer,finite+simple
+15,26,15_26,2017,Madrid,female,35,"English, German","que justo en ese preciso instante pasa por detrás, con un carrito de bebé.",masc,NA,pacient,SC,D,NA,GI,Y,nullsub,pasar,finite+simple
+15,27,15_27,2017,Madrid,female,35,"English, German","En efecto, así lo intenta el personaje representado por Charlie Chaplin,",masc,POST,pacient,MC,D,DEF,GI,N,dp,intentar,finite+simple
+15,27,15_27,2017,Madrid,female,35,"English, German",el bebé debe llevárselo el hombre,masc,PRE,pacient,MC,D,DEF,GI,N,dp,llevarse,modal
+15,28,15_28,2017,Madrid,female,35,"English, German",que da a entender a la mujer,masc,PRE,agent,SC,D,DEF,GI,N,pron,dar,Periphrasis-lexical
+15,29,15_29,2017,Madrid,female,35,"English, German",que se ha olvidado del otro niño en la calle.,fem,NA,pacient,SC,D,NA,GI,N,nullsub,olvidarse,finite+simple
+15,30,15_30,2017,Madrid,female,35,"English, German","Pero ella lo rechaza,",fem,PRE,agent,MC,D,DEF,GI,N,pron,rechazar,finite+simple
+15,30,15_30,2017,Madrid,female,35,"English, German","Al final de la historia, el personaje encarnado por Charlie Chaplin se plantea incluso arrojar al niño por una alcantarilla,",masc,PRE,agent,MC,D,DEF,GI,N,dp,plantearse,finite+simple
+15,31,15_31,2017,Madrid,female,35,"English, German",por lo que el hombre vuelve al lugar,masc,PRE,agent,SC,D,DEF,GI,N,dp,volver,finite+simple
+15,31,15_31,2017,Madrid,female,35,"English, German",si bien acaba triunfando su sentido común,masc,POST,agent,SC,D,DEF,NE,N,dp,triunfar,periphrasis-gerund
+15,32,15_32,2017,Madrid,female,35,"English, German",en el que lo ha encontrado,masc,NA,agent,SC,D,NA,GI,Y,nullsub,encontrar,finite+simple
+15,33,15_33,2017,Madrid,female,35,"English, German",y lo deposita en el suelo con sumo cuidado.,masc,NA,agent,MC,D,NA,GI,Y,nullsub,despositar,finite+simple
+15,34,15_34,2017,Madrid,female,35,"English, German","No obstante, no puede llegar a abandonarlo ahí,",masc,NA,pacient,MC,D,NA,GI,Y,nullsub,llegar,modal
+15,35,15_35,2017,Madrid,female,35,"English, German",porque aparece un agente de la ley con cara de pocos amigos.,masc,POST,pacient,SC,D,INDEF,NE,N,dp,aparecer,finite+simple
+15,35,15_35,2017,Madrid,female,35,"English, German",Siente tanta lástima por el pobre chiquillo,masc,NA,agent,MC,D,NA,GI,N,nullsub,sentir,finite+simple
+15,36,15_36,2017,Madrid,female,35,"English, German","Cuando se percata de su presencia,",masc,NA,pacient,SC,D,NA,GI,N,nullsub,percatarse,finite+simple
+15,36,15_36,2017,Madrid,female,35,"English, German","que acaba quedándoselo,",masc,NA,pacient,SC,D,NA,GI,N,nullsub,quedarse,periphrasis-gerund
+15,37,15_37,2017,Madrid,female,35,"English, German",pues la última secuencia de la cámara permite verle levantándose de la acera,fem,PRE,pacient,MC,D,DEF,GI,N,dp,ver,modal
+15,37,15_37,2017,Madrid,female,35,"English, German",porque es suyo.,masc,NA,pacient,SC,D,NA,GI,N,nullsub,ser,finite+simple
+15,38,15_38,2017,Madrid,female,35,"English, German","Charlie sale de nuevo huyendo con el bebé,",masc,PRE,agent,MC,D,DEF,GI,N,dp,salir,finite+simple
+15,38,15_38,2017,Madrid,female,35,"English, German",en la que se había sentado para lanzarlo por la alcantarilla...,masc,NA,agent,SC,D,NA,GI,N,nullsub,sentarse,finite+simple
+15,40,15_40,2017,Madrid,female,35,"English, German",que lo lleva,masc,NA,pacient,SC,D,NA,GI,Y,nullsub,llevar,finite+simple
+15,42,15_42,2017,Madrid,female,35,"English, German",porque es suyo.,masc,NA,pacient,SC,D,NA,GI,N,nullsub,ser,finite+simple
+16,1,16_1,2017,Madrid,male,37,NA,"Charlot, un vagabundo muy ‘enseñoriado’, pasea por unos callejones.",masc,PRE,pacient,MC,D,DEF,NE,N,dp,pasear,finite+simple
+16,2,16_2,2017,Madrid,male,37,NA,"Los vecinos, desde varias ventanas, van vertiendo desperdicios y basura sobre cubos y acera…",masc,PRE,agent,MC,D,DEF,NE,N,dp,vertir,periphrasis-gerund
+16,3,16_3,2017,Madrid,male,37,NA,"aunque no es que atinen mucho,",unknown,NA,agent,SC,D,NA,GI,Y,nullsub,atener,finite+simple
+16,4,16_4,2017,Madrid,male,37,NA,pues la mayoría de ellos acaba desperdigada por los suelos.,masc,PRE,pacient,MC,D,DEF,NE,N,dp,acabar,finite+simple
+16,5,16_5,2017,Madrid,male,37,NA,"El personaje llegar a una rinconada  ,",masc,PRE,pacient,MC,D,DEF,GI,N,dp,llegar,finite+simple
+16,6,16_6,2017,Madrid,male,37,NA,es un vagabundo con mucha clase.,masc,POST,pacient,MC,D,INDEF,GI,Y,dp,ser,finite+simple
+16,7,16_7,2017,Madrid,male,37,NA,y restos […]  casi le caen encima.,masc,PRE,pacient,MC,D,DEF,GI,N,dp,caer,finite+simple
+16,8,16_8,2017,Madrid,male,37,NA,de lo que parecen alimentos o verduras,masc,POST,pacient,SC,D,INDEF,GI,Y,dp,parecer,finite+simple
+16,9,16_9,2017,Madrid,male,37,NA,"Indignado, pero galán, se despoja de sus guantes, “como un señor”",masc,NA,agent,MC,D,NA,GI,N,nullsub,despojarse,finite+simple
+16,12,16_12,2017,Madrid,male,37,NA,cuando se da cuenta,masc,NA,pacient,SC,D,NA,GI,Y,nullsub,darse,periphrasis-lexical
+16,13,16_13,2017,Madrid,male,37,NA,"de que, en el suelo, sobre un paraguas, alguien ha abandonado a un niño, a un bebe.",masc,PRE,agent,SC,D,INDEF,NE,N,pron,abandonar,finite+simple
+16,14,16_14,2017,Madrid,male,37,NA,Lo recoge,masc,NA,agent,MC,D,NA,GI,N,nullsub,recoger,recoger
+16,15,16_15,2017,Madrid,male,37,NA,y otea alrededor.,masc,NA,agent,MC,D,NA,GI,Y,nullsub,otear,finite+simple
+16,16,16_16,2017,Madrid,male,37,NA,Chaplin ve,masc,PRE,pacient,MC,D,DEF,GI,Y,dp,ver,finite+simple
+16,17,16_17,2017,Madrid,male,37,NA,cómo una mujer cargada con un cochecito gira por el fondo.,fem,PRE,agent,SC,D,INDEF,NE,N,dp,girar,finite+simple
+16,18,16_18,2017,Madrid,male,37,NA,"Cuando se aproxima al carro,",masc,NA,agent,SC,D,NA,GI,N,nullsub,aproximarse,finite+simple
+16,20,16_20,2017,Madrid,male,37,NA,"que la madre […] se ha metido en una de las casas,",fem,PRE,agent,SC,D,DEF,GI,N,dp,meterse,finite+simple
+16,21,16_21,2017,Madrid,male,37,NA,que lo portaba,fem,NA,pacient,SC,D,DEF,GI,Y,pron,llevar,finite+simple
+16,22,16_22,2017,Madrid,male,37,NA,"trata de dejar el bebe en este,",masc,NA,agent,MC,D,NA,GI,N,nullsub,tratar,infinitive
+16,23,16_23,2017,Madrid,male,37,NA,imagino que,1st_person,NA,agent,MC,D,NA,GI,N,nullsub,imaginar,finite+simple
+16,25,16_25,2017,Madrid,male,37,NA,que se le había caído a la señora.,masc,NA,pacient,SC,D,NA,GI,N,nullsub,caer,finite+simple
+16,26,16_26,2017,Madrid,male,37,NA,"Ella, bastante ofendida, le increpa",fem,PRE,agent,MC,D,DEF,GI,N,pron,increpar,finite+simple
+16,27,16_27,2017,Madrid,male,37,NA,para que recoja de nuevo al chiquillo.,masc,NA,agent,SC,D,NA,GI,N,nullsub,recoger,finite+simple
+16,28,16_28,2017,Madrid,male,37,NA,El vagabundo decide depositarlo nuevamente,masc,PRE,agent,MC,D,DEF,GI,Y,dp,decidir,infinitive
+16,29,16_29,2017,Madrid,male,37,NA,"donde lo encontró,",masc,NA,agent,SC,D,NA,GI,Y,nullsub,encontrar,finite+simple
+16,30,16_30,2017,Madrid,male,37,NA,pero es detenido por un policía.,masc,NA,pacient,MC,D,NA,GI,Y,nullsub,detener,passive
+16,31,16_31,2017,Madrid,male,37,NA,"Así pues, decide seguir caminando y alejarse del agente de la ley",masc,NA,agent,MC,D,NA,GI,Y,nullsub,decidir,finite+simple
+16,33,16_33,2017,Madrid,male,37,NA,Cambiamos de escenario,1st_person,NA,agent,MC,D,NA,GI,N,nullsub,cambiar,finite+simple
+16,34,16_34,2017,Madrid,male,37,NA,y vemos,1st_person,NA,pacient,MC,D,NA,GI,Y,nullsub,ver,finite+simple
+16,35,16_35,2017,Madrid,male,37,NA,"que camina junto a otro personaje de aspecto mendicante,",masc,NA,agent,MC,D,NA,GI,N,nullsub,caminar,finite+simple
+16,36,16_36,2017,Madrid,male,37,NA,al menos en lo que a barbas se refiere.,masc,NA,agent,SC,D,NA,GI,N,nullsub,referirse,finite+simple
+16,38,16_38,2017,Madrid,male,37,NA,disimula,masc,NA,agent,MC,D,NA,GI,Y,nullsub,disimular,finite+simple
+16,39,16_39,2017,Madrid,male,37,NA,"haciendo que se la ha desatado un zapato,",masc,POST,pacient,SC,D,INDEF,NE,N,dp,desatado,finite+simple
+16,40,16_40,2017,Madrid,male,37,NA,le pasa al niño,masc,NA,pacient,MC,D,NA,GI,N,nullsub,pasar,finite+simple
+16,41,16_41,2017,Madrid,male,37,NA,mientras él se agacha,masc,PRE,agent,SC,D,DEF,GI,Y,pron,agachar,finite+simple
+16,44,16_44,2017,Madrid,male,37,NA,sale a la carrera.,masc,NA,agent,MC,D,NA,GI,Y,nullsub,salir,finite+simple
+16,45,16_45,2017,Madrid,male,37,NA,El nuevo portador del bebé persigue al protagonista sin mucho éxito:,masc,NA,agent,MC,D,NA,NE,N,nullsub,perseguir,finite+simple
+16,46,16_46,2017,Madrid,male,37,NA,este se ha escondido en un portal,masc,PRE,agent,MC,D,DEF,GI,N,pron,esconderse,finite+simple
+16,47,16_47,2017,Madrid,male,37,NA,y no le ve.,masc,NA,pacient,MC,D,NA,GI,N,nullsub,ver,finite+simple
+16,48,16_48,2017,Madrid,male,37,NA,"Entonces, el mendicante barbudo resuelve dejar a la criatura en ‘casualmente’ el mismo carrito",masc,PRE,agent,MC,D,DEF,GI,N,dp,resolver,infinitive
+16,49,16_49,2017,Madrid,male,37,NA,donde lo depositó Chaplin en su primer intento de devolución…,masc,POST,agent,SC,D,DEF,GI,N,dp,despositar,finite+simple
+16,50,16_50,2017,Madrid,male,37,NA,La dueña y madre del bebé original sale de la zapatería,fem,PRE,agent,MC,D,DEF,NE,N,dp,salir,finite+simple
+16,51,16_51,2017,Madrid,male,37,NA,que va en el cochecito,masc,PRE,pacient,SC,D,DEF,GI,N,pron,ir,finite+simple
+16,52,16_52,2017,Madrid,male,37,NA,donde se encontraba,masc,NA,pacient,SC,D,NA,GI,N,nullsub,encontrar,finite+simple
+16,54,16_54,2017,Madrid,male,37,NA,"Charlot sale de su escondite,",masc,PRE,agent,MC,D,DEF,GI,N,dp,salir,finite+simple
+16,55,16_55,2017,Madrid,male,37,NA,gira la esquina en sentido contrario,masc,NA,agent,MC,D,NA,GI,Y,nullsub,girar,finite+simple
+16,56,16_56,2017,Madrid,male,37,NA,"y se da de bruces con el agente,",masc,NA,agent,MC,D,NA,GI,Y,nullsub,darse,finite+simple
+16,57,16_57,2017,Madrid,male,37,NA,"lo que le obliga a disimular,",masc,PRE,agent,SC,D,DEF,GI,N,pron,obligar,infinitive
+16,59,16_59,2017,Madrid,male,37,NA,"donde, en ese momento, la madre del cochecito encuentra al nuevo inquilino.",fem,PRE,agent,SC,D,DEF,GI,N,dp,encontrar,finite+simple
+16,60,16_60,2017,Madrid,male,37,NA,"Esta, se enfada",fem,PRE,agent,MC,D,DEF,GI,NA,pron,enfadarse,finite+simple
+16,62,16_62,2017,Madrid,male,37,NA,y le da una suerte de paraguazos,fem,NA,agent,MC,D,NA,GI,Y,nullsub,dar,finite+simple
+16,63,16_63,2017,Madrid,male,37,NA,para que recoja al crío.,masc,NA,agent,SC,D,NA,GI,N,nullsub,recoger,finite+simple
+16,64,16_64,2017,Madrid,male,37,NA,"A pesar de que el protagonista se resiste a hacerlo,",masc,PRE,agent,SC,D,DEF,GI,Y,dp,resistir,finite+simple
+16,65,16_65,2017,Madrid,male,37,NA,cambia de opinión,masc,NA,agent,MC,D,NA,GI,Y,nullsub,cambiar,finite+simple
+16,66,16_66,2017,Madrid,male,37,NA,en cuanto aparece en escena el policía,masc,NA,pacient,MC,D,NA,GI,N,nullsub,aparecer,finite+simple
+16,67,16_67,2017,Madrid,male,37,NA,que continuaba con su ronda,masc,PRE,agent,SC,D,DEF,GI,Y,pron,continuar,finite+simple
+16,69,16_69,2017,Madrid,male,37,NA,"decide sentarse en el bordillo,",masc,NA,agent,MC,D,NA,GI,N,nullsub,decidir,finite+simple
+16,71,16_71,2017,Madrid,male,37,NA,que se tenía que agachar a coger su bastón,masc,NA,agent,SC,D,NA,GI,Y,nullsub,agachar,modal
+16,72,16_72,2017,Madrid,male,37,NA,"Aquí, ve una alcantarilla",fem,NA,pacient,MC,D,NA,GI,Y,nullsub,ver,finite+simple
+16,73,16_73,2017,Madrid,male,37,NA,y piensa,masc,NA,agent,MC,D,NA,GI,Y,nullsub,pensar,finite+simple
+16,74,16_74,2017,Madrid,male,37,NA,si sería buena idea,fem,POST,pacient,SC,D,INDEF,NE,N,dp,ser,finite+simple
+16,77,16_77,2017,Madrid,male,37,NA,pero parece no atreverse.,masc,NA,pacient,MC,D,NA,GI,Y,nullsub,parecer,finite+simple
+16,78,16_78,2017,Madrid,male,37,NA,Entonces encuentra una nota camuflada entre los ropajes del bebé,fem,NA,agent,MC,D,NA,GI,Y,nullsub,encontrar,finite+simple
+16,80,16_80,2017,Madrid,male,37,NA,que es huérfano,masc,POST,pacient,SC,D,INDEF,GI,N,dp,ser,finite+simple
+16,81,16_81,2017,Madrid,male,37,NA,y quien quiera […] pide cariño y amor para con la criaturita.,unknown,PRE,agent,SC,IM,DEF,NE,N,pron,querer,finite+simple
+16,82,16_82,2017,Madrid,male,37,NA,que fuera,unknown,NA,pacient,SC,D,NA,GI,Y,nullsub,ser,finite+simple
+16,83,16_83,2017,Madrid,male,37,NA,"quien la haya escrito,",unknown,PRE,agent,SC,D,DEF,GI,Y,pron,escribir,finite+simple
+16,84,16_84,2017,Madrid,male,37,NA,"Finalmente, Charlot se levanta alegre,",masc,PRE,agent,MC,D,DEF,GI,N,dp,levantarse,finite+simple
+16,85,16_85,2017,Madrid,male,37,NA,"y se pierde por el fondo con el crío en brazos y una actitud renovada,",masc,NA,pacient,MC,D,NA,GI,Y,nullsub,perder,finite+simple
+17,1,17_1,2017,Madrid,female,42,"English, French","En este video, vemos un extracto de Charles Chaplin,",masc,NA,pacient,MC,D,NA,GI,N,nullsub,ver,finite+simple
+17,2,17_2,2017,Madrid,female,42,"English, French","Está filmado en blanco y negro,",masc,NA,agent,MC,D,NA,GI,Y,nullsub,filmar,passive
+17,4,17_4,2017,Madrid,female,42,"English, French",y no tiene sonido,masc,NA,pacient,MC,D,NA,GI,N,nullsub,tener,finite+simple
+17,5,17_5,2017,Madrid,female,42,"English, French",(es cine mudo acompañado de música de situación).,unknown,POST,pacient,MC,D,DEF,NE,Y,dp,ser,finite+simple
+17,6,17_6,2017,Madrid,female,42,"English, French","El protagonista está en una zona abandonada y deprimida,",masc,PRE,pacient,MC,D,DEF,NE,N,dp,estar,finite+simple
+17,7,17_7,2017,Madrid,female,42,"English, French",encuentra una lata con unas colillas,masc,NA,agent,MC,D,NA,GI,Y,nullsub,encontrar,finite+simple
+17,8,17_8,2017,Madrid,female,42,"English, French",y enciende una de ellas.,masc,NA,agent,MC,D,NA,GI,Y,nullsub,encender,finite+simple
+17,9,17_9,2017,Madrid,female,42,"English, French","De repente, repara  .",masc,NA,agent,MC,D,NA,GI,Y,nullsub,reparar,finite+simple
+17,11,17_11,2017,Madrid,female,42,"English, French",que está llorando,masc,PRE,agent,SC,D,DEF,GI,Y,pron,llorar,periphrasis-gerund
+17,13,17_13,2017,Madrid,female,42,"English, French","introduce al bebé abandonado en el carrito,",masc,NA,agent,MC,D,NA,GI,N,nullsub,introducir,finite+simple
+17,16,17_16,2017,Madrid,female,42,"English, French","La madre del segundo bebé, y dueña del carrito le recrimina su acción",fem,PRE,agent,MC,D,DEF,NE,N,dp,recriminar,finite+simple
+17,17,17_17,2017,Madrid,female,42,"English, French",y le insta a sacar al primer bebé de allí.,fem,NA,agent,MC,D,NA,GI,Y,nullsub,instar,infinitive
+17,18,17_18,2017,Madrid,female,42,"English, French",Pasa un policía  sin saber qué hacer con él.,masc,POST,pacient,MC,D,INDEF,NE,N,dp,pasar,finite+simple
+17,19,17_19,2017,Madrid,female,42,"English, French","que le mira con desaprobación,",masc,PRE,agent,SC,D,DEF,GI,Y,pron,mirar,finite+simple
+17,20,17_20,2017,Madrid,female,42,"English, French",y el protagonista deambula de acá para allá con el bebé en brazos.,masc,PRE,agent,MC,D,DEF,GI,N,dp,deambular,finite+simple
+17,21,17_21,2017,Madrid,female,42,"English, French","Se lo da a un anciano ,",masc,NA,agent,MC,D,NA,GI,Y,nullsub,dar,finite+simple
+17,22,17_22,2017,Madrid,female,42,"English, French",que camina con garrota,masc,PRE,agent,SC,D,DEF,GI,N,pron,caminar,finite+simple
+17,23,17_23,2017,Madrid,female,42,"English, French",y sale corriendo.,masc,NA,agent,MC,D,NA,GI,N,nullsub,salir,periphrasis-gerund
+17,24,17_24,2017,Madrid,female,42,"English, French","El anciano deja al bebé en el carrito de la señora anterior,",masc,PRE,agent,MC,D,DEF,GI,N,dp,dejar,finite+simple
+17,25,17_25,2017,Madrid,female,42,"English, French",y huye corriendo también.,masc,NA,agent,MC,D,NA,GI,Y,nullsub,huír,periphrasis-gerund
+17,26,17_26,2017,Madrid,female,42,"English, French","Se acerca un policía,",masc,POST,pacient,MC,D,INDEF,GI,N,dp,acercarse,finite+simple
+17,27,17_27,2017,Madrid,female,42,"English, French","la señora, […] sale,",fem,PRE,agent,MC,D,DEF,GI,N,dp,salir,finite+simple
+17,28,17_28,2017,Madrid,female,42,"English, French","que ha dejado el carrito en la puerta de una tienda o vivienda,",fem,PRE,agent,SC,D,DEF,GI,Y,pron,dejar,finite+simple
+17,29,17_29,2017,Madrid,female,42,"English, French",y hace aspavientos,fem,NA,agent,MC,D,NA,GI,Y,nullsub,hacer,finite+simple
+17,31,17_31,2017,Madrid,female,42,"English, French","Casualmente el protagonista pasa por allí,",masc,PRE,pacient,MC,D,DEF,GI,N,dp,pasar,finite+simple
+17,32,17_32,2017,Madrid,female,42,"English, French",la señora sale detrás de él,fem,PRE,agent,MC,D,DEF,GI,N,dp,salir,finite+simple
+17,33,17_33,2017,Madrid,female,42,"English, French",y se lía a paraguazos,fem,NA,agent,MC,D,NA,GI,Y,nullsub,liarse,finite+simple
+17,35,17_35,2017,Madrid,female,42,"English, French","Vuelve el policía, armado con una porra,",masc,POST,pacient,MC,D,DEF,GI,N,dp,volver,finite+simple
+17,36,17_36,2017,Madrid,female,42,"English, French",y éste saca de nuevo al bebé del carrito,masc,PRE,agent,MC,D,DEF,GI,N,pron,sacar,finite+simple
+17,37,17_37,2017,Madrid,female,42,"English, French",y se marcha con él.,masc,NA,agent,MC,D,NA,GI,Y,nullsub,marcharse,finite+simple
+17,38,17_38,2017,Madrid,female,42,"English, French",El protagonista no sabe,masc,PRE,agent,MC,D,DEF,GI,Y,dp,saber,finite+simple
+17,40,17_40,2017,Madrid,female,42,"English, French",Se sienta con él en la acera,masc,NA,agent,MC,D,NA,GI,Y,nullsub,sentarse,finite+simple
+17,41,17_41,2017,Madrid,female,42,"English, French",y abre una alcantarilla.,masc,NA,agent,MC,D,NA,GI,Y,nullsub,abrir,finite+simple
+17,42,17_42,2017,Madrid,female,42,"English, French",Encuentra una nota entre las ropas del bebé,fem,NA,agent,MC,D,NA,GI,Y,nullsub,encontrar,finite+simple
+17,44,17_44,2017,Madrid,female,42,"English, French","que por favor, lo cuiden,",masc,NA,agent,SC,IM,NA,NA,NA,nullsub,cuidar,finite+simple
+17,45,17_45,2017,Madrid,female,42,"English, French",es un bebé huérfano.,masc,POST,pacient,MC,D,INDEF,NE,N,dp,ser,finite+simple
+17,46,17_46,2017,Madrid,female,42,"English, French","Le acuna sonriente,",masc,NA,agent,MC,D,NA,GI,NA,nullsub,acunar,finite+simple
+17,47,17_47,2017,Madrid,female,42,"English, French","y se aleja feliz, con él en brazos.",masc,NA,agent,MC,D,NA,GI,Y,nullsub,alejarse,finite+simple
+18,1,18_1,2018,Madrid,male,42,"Arabic, English",Chaplin se encuentra en un callejón,masc,PRE,pacient,MC,D,DEF,NE,N,dp,encontrar,finite+simple
+18,2,18_2,2018,Madrid,male,42,"Arabic, English","en el que encuentra a un bebé,",masc,NA,agent,SC,D,NA,GI,Y,nullsub,encontrar,finite+simple
+18,3,18_3,2018,Madrid,male,42,"Arabic, English",decide deshacerse de él,masc,NA,agent,MC,D,NA,GI,Y,nullsub,decidir,infinitive
+18,5,18_5,2018,Madrid,male,42,"Arabic, English",que pasaba por allí,fem,PRE,pacient,SC,D,DEF,GI,N,pron,pasar,finite+simple
+18,6,18_6,2018,Madrid,male,42,"Arabic, English",pero esta se da cuenta,fem,PRE,pacient,MC,D,DEF,GI,Y,pron,darse,Periphrasis-lexical
+18,7,18_7,2018,Madrid,male,42,"Arabic, English",y se lo devuelve malhumorada.,fem,NA,agent,MC,D,NA,GI,Y,nullsub,devolver,finite+simple
+18,8,18_8,2018,Madrid,male,42,"Arabic, English",Después Chaplin deja al bebé,masc,PRE,agent,MC,D,DEF,GI,N,dp,dejar,finite+simple
+18,9,18_9,2018,Madrid,male,42,"Arabic, English","donde lo encontró,",masc,NA,agent,SC,D,NA,GI,Y,nullsub,encontrar,finite+simple
+18,10,18_10,2018,Madrid,male,42,"Arabic, English","pero un guardia lo ve,",masc,PRE,pacient,MC,D,INDEF,NE,N,dp,ver,finite+simple
+18,11,18_11,2018,Madrid,male,42,"Arabic, English",por lo que no lo hace.,masc,NA,agent,SC,D,NA,GI,N,nullsub,hacer,finite+simple
+18,12,18_12,2018,Madrid,male,42,"Arabic, English","Finalmente, ve a un anciano",masc,NA,pacient,MC,D,NA,GI,Y,nullsub,ver,finite+simple
+18,13,18_13,2018,Madrid,male,42,"Arabic, English","y se lo entrega,",masc,NA,agent,MC,D,NA,GI,Y,nullsub,entregar,finite+simple
+18,14,18_14,2018,Madrid,male,42,"Arabic, English","el cual lo devuelve al carrito de la mujer anterior,",masc,PRE,agent,SC,D,DEF,GI,N,pron,devolver,finite+simple
+18,15,18_15,2018,Madrid,male,42,"Arabic, English",y esta se lo entrega de nuevo.,fem,PRE,agent,MC,D,DEF,GI,N,pron,entregar,finite+simple
+18,18,18_18,2018,Madrid,male,42,"Arabic, English",El fragmento concluye con Chaplin,masc,PRE,pacient,MC,D,DEF,NE,N,dp,concluir,finite+simple
+18,21,18_21,2018,Madrid,male,42,"Arabic, English",que este llevaba entre la manta,masc,PRE,pacient,SC,D,DEF,GI,N,pron,llevar,finite+simple
+18,23,18_23,2018,Madrid,male,42,"Arabic, English",que cuidaran a ese niño huérfano.,masc,NA,agent,SC,IM,NA,NA,NA,nullsub,cuidar,finite+simple

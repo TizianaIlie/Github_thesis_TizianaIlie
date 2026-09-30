@@ -1,0 +1,409 @@
+---
+title: "3_Extension1_GenderGenus"
+format: html
+editor: visual
+author: "Tiziana Ilie"
+---
+
+# 1. Extension: Investigating the influence of the speaker's gender and the grammatical gender of the referential subject
+
+## Set up and packages
+
+```{r}
+
+library(partykit)
+library(dplyr)
+library(stringr)
+library(lattice)
+library(usethis)
+library(devtools)
+library(moreparty)
+library(here)
+
+```
+
+## Loading data
+
+```{r}
+
+datanative<-read.csv(here::here("data", "annotations", "kocher_native_data_annotation.csv"), stringsAsFactors = TRUE) #Loading the Spanish native speaker dataset
+
+datal2german<-read.csv(here::here("data", "annotations", "joined_germanL1_data_annotation.csv"), stringsAsFactors = TRUE) #Loading the L1 German dataset
+
+```
+
+## STEP 1: Native L1 data predictive model
+
+```{r}
+
+#Before comparing the models, I rename the 'Sex' column 'SpeakerGender', aligning the plot labels with the variables to be investigated in the next section.
+
+datanative <- datanative |> 
+  rename("SpeakerGender" = "Sex") #renaming the speaker's gender column
+
+datal2german <- datal2german |> 
+  rename("SpeakerGender" = "Sex")
+
+# Original model from Kocher (2025)
+rfpnative <- partykit::cforest(SubjectType ~ SubjectPosition +
+                                          InformationStructure +
+                                          ReferentialContinuity +
+                                          ClauseType, 
+                                        weights = ifelse(datanative$SubjectType
+                                                         =='dp', 2,
+                                                  ifelse(datanative$SubjectType 
+                                                         == "pron",4,1) ),  
+                                        data = datanative) 
+
+# Extended model with the speaker's gender only
+rfpnative_gender <- partykit::cforest(SubjectType ~ SubjectPosition +
+                                          InformationStructure +
+                                          ReferentialContinuity +
+                                          ClauseType +
+                                          SpeakerGender, 
+                                        weights = ifelse(datanative$SubjectType
+                                                         =='dp', 2,
+                                                         ifelse
+                                                         (datanative$SubjectType 
+                                                                == "pron",4,1) ),  
+                                        data = datanative) 
+
+# Extended model with the grammatical gender of the referential subjects only
+rfpnative_genus <- partykit::cforest(SubjectType ~ SubjectPosition +
+                                        InformationStructure +
+                                        ReferentialContinuity +
+                                        ClauseType +
+                                        SubjectGenus, 
+                                      weights = ifelse(datanative$SubjectType
+                                                       =='dp', 2,
+                                                       ifelse
+                                                       (datanative$SubjectType 
+                                                         == "pron",4,1) ),  
+                                      data = datanative) 
+
+# Extended model with both predictors
+rfpnative_gendergenus <- partykit::cforest(SubjectType ~ SubjectPosition +
+                                       InformationStructure +
+                                       ReferentialContinuity +
+                                       ClauseType +
+                                       SpeakerGender +
+                                       SubjectGenus, 
+                                     weights = ifelse(datanative$SubjectType
+                                                      =='dp', 2,
+                                                      ifelse
+                                                      (datanative$SubjectType 
+                                                        == "pron",4,1) ),  
+                                     data = datanative) 
+
+
+```
+
+### Checking accuracy
+
+```{r}
+
+# Original model
+confusionmatrixrfpnative<-table(predict(rfpnative), datanative$SubjectType)
+confusionmatrixrfpnative
+MA_orig <- sum(diag(confusionmatrixrfpnative))/sum(confusionmatrixrfpnative) 
+#0.6398 > 64.0% moderate accuracy
+#saveRDS(MA_orig, "3_Extension1_GenderGenus/Calculations/MA_orig.rds") #TI: saving for thesis.qmd
+
+
+# with 'SpeakerGender'
+confusionmatrixrfpnative_gender<-table(predict(rfpnative_gender), datanative$SubjectType)
+confusionmatrixrfpnative_gender
+MA_Gender <- sum(diag(confusionmatrixrfpnative_gender))/sum(confusionmatrixrfpnative_gender) 
+#0.637931 > 63.8% 
+#saveRDS(MA_Gender, "3_Extension1_GenderGenus/Calculations/MA_Gender.rds") #TI: saving for thesis.qmd
+
+
+# with 'SubjectGenus'
+confusionmatrixrfpnative_genus<-table(predict(rfpnative_genus), datanative$SubjectType)
+confusionmatrixrfpnative_genus
+#saveRDS(confusionmatrixrfpnative_genus, "3_Extension1_GenderGenus/Calculations/confusionmatrixrfpnative_genus.rds") #TI: saving for thesis.qmd
+MA_Genus <- sum(diag(confusionmatrixrfpnative_genus))/sum(confusionmatrixrfpnative_genus) 
+#0.6724138 > 67.2%
+#saveRDS(MA_Genus, "3_Extension1_GenderGenus/Calculations/MA_Genus.rds") #TI: saving for thesis.qmd
+
+
+# with 'SpeakerGender' and 'SubjectGenus'
+confusionmatrixrfpnative_gendergenus<-table(predict(rfpnative_gendergenus), datanative$SubjectType)
+confusionmatrixrfpnative_gendergenus
+MA_GenderGenus <- sum(diag(confusionmatrixrfpnative_gendergenus))/sum(confusionmatrixrfpnative_gendergenus) 
+# 0.6321839 > 63%
+#saveRDS(MA_GenderGenus, "3_Extension1_GenderGenus/Calculations/MA_GenderGenus.rds") #TI: saving for thesis.qmd
+
+
+rfpnative_final <- rfpnative_genus #saving rfpnative_genus as final model for further calculations
+```
+
+All models provide similarly moderate accuracy. However, as the model containing only the predictor variable *SubjectGenus* is the most accurate, I have decided to choose this one as the final model to be investigated further.
+
+### Figure (ProficiencyScore)
+
+```{r}
+
+pdf("3_Extension1_GenderGenus/Figures/varimp_native.pdf",width=5, height = 5) 
+varimp<-varimp.cforest(rfpnative) # variable importance 
+dotplot(sort(varimp),  xlab="Variable importance", col="gray51")  
+dev.off()  
+
+pdf("3_Extension1_GenderGenus/Figures/varimp_native_gender.pdf",width=5, height = 5)
+varimp<-varimp.cforest(rfpnative_gender) # variable importance 
+dotplot(sort(varimp),  xlab="Variable importance", col="gray51")  
+dev.off()  
+
+pdf("3_Extension1_GenderGenus/Figures/varimp_native_genus.pdf",width=5, height = 5)
+varimp<-varimp.cforest(rfpnative_genus) # variable importance 
+dotplot(sort(varimp),  xlab="Variable importance", col="gray51")  
+dev.off()  
+
+png("3_Extension1_GenderGenus/Figures/varimp_native_genus.png",width=500, height = 500)
+varimp<-varimp.cforest(rfpnative_genus) # variable importance 
+dotplot(sort(varimp),  xlab="Variable importance", col="gray51")  
+dev.off() 
+
+pdf("3_Extension1_GenderGenus/Figures/varimp_native_gendergenus.pdf",width=5, height = 5) 
+varimp<-varimp.cforest(rfpnative_gendergenus)  
+dotplot(sort(varimp),  xlab="Variable importance", col="gray51")  
+dev.off() 
+
+png("3_Extension1_GenderGenus/Figures/varimp_native_gendergenus.png",width=500, height = 500) 
+varimp<-varimp.cforest(rfpnative_gendergenus)  
+dotplot(sort(varimp),  xlab="Variable importance", col="gray51")  
+dev.off()
+
+```
+
+### Inspecting predictions of the final model (including [SubjectGenus]{.smallcaps})
+
+```{r}
+
+datanative$Predictions<-predict(rfpnative_final) 
+#predicts a value of SubjectType for each observation in datanative
+
+datanative$Correct<-as.character(datanative$Predictions) 
+#variable called Correct is created and initially contains the predicted class labels
+
+datanative[datanative$Predictions==datanative$SubjectType,]$Correct<-"CORRECT" 
+#code compares the predicted value with the true value. When they match, 'Correct' is replaced by 'CORRECT'.
+
+datanative$Correct<-recode(datanative$Correct, pron="predictpron", dp="predictdp",nullsub="predictnullsub") 
+#incorrectly classified observations are renamed to make it explicit what the model actually predicted
+
+datanative$Correct<-as.factor(datanative$Correct)
+
+```
+
+Wrong predictions
+
+```{r}
+
+corrtab<-table(datanative$Correct, datanative$SubjectType)
+corrtab #different type of visualisation of the confusionmatrix
+
+#DPs
+corrtab[1,1]/sum(corrtab[c(1,2,3,4),1]) # 79 originally 80 correct
+corrtab[3,1]/sum(corrtab[c(1,2,3,4),1]) #  7 originally 8 null sub
+corrtab[4,1]/sum(corrtab[c(1,2,3,4),1]) # 12 originally 10 pronouns
+
+#nullsubs
+corrtab[1,2]/sum(corrtab[c(1,2,3,4),2]) # 59 originally 53 correct !
+corrtab[2,2]/sum(corrtab[c(1,2,3,4),2]) # 24 originally 24 Dps
+corrtab[4,2]/sum(corrtab[c(1,2,3,4),2]) # 16 originally 22 pronouns
+
+#pronouns
+corrtab[1,3]/sum(corrtab[c(1,2,3,4),3]) # 48 originally 59 correct !
+corrtab[2,3]/sum(corrtab[c(1,2,3,4),3]) # 30 originally 32 Dps
+corrtab[3,3]/sum(corrtab[c(1,2,3,4),3]) # 21 originally 8 nullsub !
+
+# The new extended model archieves slightly more correct predictions!
+```
+
+## STEP 2: Separating rows to run 'Predictnativerf' on the L2German data
+
+Wrangling:
+
+```{r}
+
+# Apart from Kochers' annotation, I decided to exclude cases containing 'unknown', 'both', or '1st person' from the surrogate tree inferential statistics.
+
+levels(datal2german$SubjectGenus) 
+
+datal2german_clean <- datal2german |> 
+  filter(SubjectGenus == "masc" | SubjectGenus == "fem") |> 
+  droplevels()
+
+levels(datal2german_clean$SubjectGenus)
+
+```
+
+```{r}
+
+datal2.mini1 <- datal2german_clean[1:500,]
+datal2.mini1$Predictnativerf<-predict(rfpnative_final, newdata=datal2.mini1)
+
+datal2.mini2 <- datal2german_clean[501:1000,]
+datal2.mini2$Predictnativerf<-predict(rfpnative_final, newdata=datal2.mini2)
+
+datal2.mini3 <- datal2german_clean[1001:1500,]
+datal2.mini3$Predictnativerf<-predict(rfpnative_final, newdata=datal2.mini3)
+
+datal2.mini4 <- datal2german_clean[1501:2000,]
+datal2.mini4$Predictnativerf<-predict(rfpnative_final, newdata=datal2.mini4)
+
+datal2.mini5 <- datal2german_clean[2001:2500,]
+datal2.mini5$Predictnativerf<-predict(rfpnative_final, newdata=datal2.mini5)
+
+datal2.mini6 <- datal2german_clean[2501:2863,]
+datal2.mini6$Predictnativerf<-predict(rfpnative_final, newdata=datal2.mini6)
+
+datal2german_new <- bind_rows(list(datal2.mini1, datal2.mini2,datal2.mini3,datal2.mini4,datal2.mini5,datal2.mini6))
+
+rm(datal2german_clean) #remove old datal2german_clean and 
+datal2german_clean <- datal2german_new #renaming df
+rm(datal2german_new) #remove datal2german_new
+
+```
+
+## STEP 3: Predictions
+
+This step creates a new categorical variable that indicates whether the random forest prediction matches the observed *SubjectType*, and, if not, which category was predicted instead.
+
+### Add CORRECT + predicted value vector
+
+```{r}
+
+datal2german_clean <- datal2german_clean |> 
+  filter(!is.na(Text)) # TI: deleting rows which were kept in df after manual exclusion despite being 'NA'
+
+datal2german_clean$ReferenceLikeCat<-as.character(datal2german_clean$Predictnativerf) 
+
+#TI:'ReferenceLikeCat' is created and initially contains the values of 'Predictnativerf'
+
+datal2german_clean[datal2german_clean$Predictnativerf==datal2german_clean$SubjectType,]$ReferenceLikeCat<-"CORRECT" 
+#TI: markes correctly predicted cases
+
+datal2german_clean$ReferenceLikeCat<-recode(datal2german_clean$ReferenceLikeCat, pron="predictpron", dp="predictdp",nullsub="predictnullsub") #renaming incorrect cases
+
+datal2german_clean$ReferenceLikeCat<-as.factor(datal2german_clean$ReferenceLikeCat)
+
+
+datal2german_clean$SubjectType <- factor(datal2german_clean$SubjectType, 
+                             levels = c("nullsub", "dp", "pron"))#TI: sets the order of factor levels
+
+datal2german_clean$Predictnativerf <- factor(datal2german_clean$Predictnativerf, 
+                                 levels = c("nullsub", "dp", "pron"))
+
+```
+
+### INSPECTION: Predicted vs observed
+
+```{r}
+
+closerepl1_pred_actual <- table(datal2german_clean$Predictnativerf, datal2german_clean$SubjectType) #differences in l1 and l2 data
+#saveRDS(closerepl1_pred_actual, "3_Extension1_GenderGenus/Calculations/closerepl1_pred_actual.rds") #TI: saving as rds to read in thesis document
+
+table(datal2german_clean$ReferenceLikeCat, datal2german_clean$SubjectType)
+# how much overlap
+
+predictions_closerpl1 <- round(table(datal2german_clean$ReferenceLikeCat)[1] /sum(table(datal2german_clean$ReferenceLikeCat)) * 100, digits = 1) # 69.8% (69.5% in Kocher's original model) total correct agreement between the native-speaker model and the L2 data.
+#saveRDS(predictions_closerpl1, "3_Extension1_GenderGenus/Calculations/predictions_closerpl1.rds") #TI: saving model_accuracy_l2_kocher for thesis.qmd
+
+#nullsub
+table(datal2german_clean$Predictnativerf, datal2german_clean$SubjectType)[1,1]/sum(table(datal2german_clean$Predictnativerf, datal2german_clean$SubjectType)[,1]) 
+# 74.3%, without SubjectGenus 75.1%, Kocher: 75% correct
+
+#dps
+table(datal2german_clean$Predictnativerf, datal2german_clean$SubjectType)[2,2]/sum(table(datal2german_clean$Predictnativerf, datal2german_clean$SubjectType)[,2]) 
+#72.9%, without SubjectGenus 77.3%, Kocher: 77% correct
+
+#pronouns
+table(datal2german_clean$Predictnativerf, datal2german_clean$SubjectType)[3,3]/sum(table(datal2german_clean$Predictnativerf, datal2german_clean$SubjectType)[,3]) 
+#40.7%, without 'SubjectGenus' 33.3%, Kocher: 34% correct
+
+#Conclusion remark: Pronoun use differs substantially from the patterns learned from the native data, as agreement with native speakers is lowest here. Conversely, null subjects and DPs show much stronger alignment with the native-speaker model, as was also observed in the original model, which did not include SubjectGenus or the data extension.
+
+#Compared to the original model and data, as well as to the model without 'SubjectGenus', the number of correct predictions is higher for pronouns (around 50%), but lower for null subjects. Predictions for DPs remain stable.
+
+
+```
+
+## STEP 4: Adding the reference-likeness variable
+
+### Recode Response variable
+
+```{r}
+
+datal2german_clean$ReferenceLike<-as.factor(temp<-ifelse(datal2german_clean$Predictnativerf==datal2german_clean$SubjectType, "TRUE", "FALSE")) 
+#creating binary 'ReferenceLike' variable
+
+#MODEL
+
+rfpl2 <- party::cforest(ReferenceLike ~ ClauseType + 
+                          InformationStructure + 
+                          ReferentialContinuity + 
+                          SubjectType + 
+                          SubjectPosition + 
+                          Score +
+                          SubjectGenus, 
+                        data = datal2german_clean) #weights = ifelse(datal2german_clean$ReferenceLikeCat =='CORRECT', 1,ifelse(datal2german_clean$ReferenceLikeCat == "predictdp",5,8))
+
+```
+
+### Figure (Variabe importance)
+
+```{r}
+
+varimp_l2 <- party::varimp(rfpl2) # Advice ELF: Presumably we need to specify that the party package should be used for this function (as opposed to partykit).
+
+#pdf("3_Extension1_GenderGenus/Figures/varimp_l2.pdf",width=5, height = 5)
+#dotplot(sort(varimp_l2), col="gray51", xlab="Variable importance")
+#dev.off()
+
+#png("3_Extension1_GenderGenus/Figures/varimp_l2.png",width=500, height = 500)
+#dotplot(sort(varimp_l2), col="gray51", xlab="Variable importance")
+#dev.off()
+
+```
+
+### Checking accuracy
+
+```{r}
+
+confusionmatrixrfpl2<-table(predict(rfpl2),datal2german_clean$ReferenceLike)
+confusionmatrixrfpl2 #TI: 15 observations are classified incorrectly (11 in original model)
+#saveRDS(confusionmatrixrfpl2, "3_Extension1_GenderGenus/Calculations/confusionmatrixrfl2_genus.rds") #TI: saving as rds to read in thesis document
+sum(diag(confusionmatrixrfpl2))/sum(confusionmatrixrfpl2) #99.5% (original model and paper: 99.5%)
+
+```
+
+### Plotting the surrogate model
+
+```{r}
+
+surro_l2german<-SurrogateTree(rfpl2, maxdepth=4)
+Rsquare_surro_closerepl1 <- surro_l2german$r.squared #R^2 is 0.932 (0.945 in the paper and 2_Robustness_Check)
+#saveRDS(Rsquare_surro_closerepl1, "3_Extension1_GenderGenus/Calculations/Rsquare_surro_closerepl1.rds") #TI: saving as rds to read in thesis document
+
+
+#FIGURE
+#pdf("3_Extension1_GenderGenus/Figures/surro_l2german.pdf", width = 21, height = 10)
+#tree<-surro_l2german$tree
+#plot(tree)
+#dev.off()
+
+#png("3_Extension1_GenderGenus/Figures/surro_l2german.png", width = 2000, height = 500) 
+#tree<-surro_l2german$tree
+#plot(tree)
+#dev.off()
+
+```
+
+Saving the dataframes with the columns *ReferenceLikeCat* and *ReferenceLike* as .csv tables.
+
+```{r}
+
+write.csv(datal2german_clean, here::here("data", "annotations", "withReferenceLike", "ReferenceLike_L1German.csv"), row.names = FALSE)
+```

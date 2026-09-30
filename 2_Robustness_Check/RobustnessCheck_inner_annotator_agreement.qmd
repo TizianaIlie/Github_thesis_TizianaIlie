@@ -1,0 +1,293 @@
+---
+title: "RobustnessCheck_inter_annotator_agreement"
+format: html
+editor: visual
+author: "Tiziana Ilie"
+---
+
+# Robustness check of Kocher's annotation: Inter-annotator agreement
+
+## Set up
+
+```{r}
+
+library(here) # setting the working directory
+library(irr) # to calculate the inter-annotator agreement
+library(knitr) # to display a useful table
+
+```
+
+## Loading data
+
+```{r}
+
+kocherssample <- read.csv(here::here("data", "annotations", "sample_kocher_germanL1_original.csv"), stringsAsFactors = TRUE)
+
+mysample <- read.csv(here::here("data", "annotations", "sample_kocher_germanL1_annotation.csv"), stringsAsFactors = TRUE)
+
+```
+
+## Calculating Inter-annotator agreement and Cohen's Kappa
+
+I used Cohen's kappa to calculate inter-annotator agreement and interpreted the results using Landis and Koch's scale (1977: 165).
+
+```{r}
+
+Annotated_columns <- merge( #creating a df with only the manually annotated variables
+  kocherssample[, c(
+    "ID",
+    "Text",
+    "ReferentialContinuity",
+    "SubjectType",
+    "ClauseType",
+    "InformationStructure",
+    "SubjectPosition",
+    "VerbConstruction",
+    "Verb")],
+  mysample[, c(
+    "ID",
+    "ReferentialContinuity",
+    "SubjectType",
+    "ClauseType",
+    "InformationStructure",
+    "SubjectPosition",
+    "VerbConstruction",
+    "Verb")], 
+  by = "ID",
+  suffixes = c("_kocher", "_my"))
+
+```
+
+Extracting the cases in which Kocher's and my annotation disagreed, calculating Cohen's K and the annotators agreement in % for each variable:
+
+### SubjectType
+
+```{r}
+SubjectType <- "SubjectType"
+Disagreement_SubjectType <- subset(
+  Annotated_columns,
+  Annotated_columns[[paste0(SubjectType, "_kocher")]] != # paste0 joins strings without separator
+    Annotated_columns[[paste0(SubjectType, "_my")]],
+  select = c(
+    "ID",
+    "Text",
+    paste0(SubjectType, "_kocher"), # using the strings as column names
+    paste0(SubjectType, "_my")))
+
+CohensK_SubjectType <- kappa2(
+  data.frame(
+    Annotated_columns$SubjectType_kocher,
+    Annotated_columns$SubjectType_my)) #Cohen's κ = 0.887
+
+mean_SubjectType <- mean(
+  Annotated_columns$SubjectType_kocher ==
+    Annotated_columns$SubjectType_my,
+  na.rm = TRUE) * 100 #93.2%
+
+```
+
+### ReferentialContinuity
+
+```{r}
+
+ReferentialContinuity <- "ReferentialContinuity"
+Disagreement_ReferentialContinuity <- subset(
+  Annotated_columns,
+  Annotated_columns[[paste0(ReferentialContinuity, "_kocher")]] !=
+    Annotated_columns[[paste0(ReferentialContinuity, "_my")]],
+  select = c(
+    "ID",
+    "Text",
+    paste0(ReferentialContinuity, "_kocher"),
+    paste0(ReferentialContinuity, "_my")))
+
+CohensK_ReferentialContinuity <- kappa2(
+  data.frame(
+    Annotated_columns$ReferentialContinuity_kocher,
+    Annotated_columns$ReferentialContinuity_my)) #Cohen's κ = 0.831
+
+mean_ReferentialContinuity <- mean(
+  Annotated_columns$ReferentialContinuity_kocher ==
+    Annotated_columns$ReferentialContinuity_my,
+  na.rm = TRUE) * 100 #91.5%
+
+```
+
+### ClauseType
+
+```{r}
+
+ClauseType <- "ClauseType"
+Disagreement_ClauseType <- subset(
+  Annotated_columns,
+  Annotated_columns[[paste0(ClauseType, "_kocher")]] !=
+    Annotated_columns[[paste0(ClauseType, "_my")]],
+  select = c(
+    "ID",
+    "Text",
+    paste0(ClauseType, "_kocher"),
+    paste0(ClauseType, "_my")))
+
+CohensK_ClauseType <- kappa2(
+  data.frame(
+    Annotated_columns$ClauseType_kocher,
+    Annotated_columns$ClauseType_my)) #Cohen's κ = 0.945
+
+mean_ClauseType <- mean(
+  Annotated_columns$ClauseType_kocher ==
+    Annotated_columns$ClauseType_my,
+  na.rm = TRUE) * 100 #97.5%
+
+```
+
+### InformationStructure
+
+```{r}
+InformationStructure <- "InformationStructure"
+Disagreement_InformationStructure <- subset(
+  Annotated_columns,
+  Annotated_columns[[paste0(InformationStructure, "_kocher")]] !=
+    Annotated_columns[[paste0(InformationStructure, "_my")]],
+  select = c(
+    "ID",
+    "Text",
+    paste0(InformationStructure, "_kocher"),
+    paste0(InformationStructure, "_my")))
+
+CohensK_InformationStructure <- kappa2(
+  data.frame(
+    Annotated_columns$InformationStructure_kocher,
+    Annotated_columns$InformationStructure_my)) #Cohen's κ = 0.739
+
+mean_InformationStructure <- mean(
+  Annotated_columns$InformationStructure_kocher ==
+    Annotated_columns$InformationStructure_my,
+  na.rm = TRUE) * 100 #95.8%
+
+```
+
+### SubjectPosition
+
+```{r}
+
+SubjectPosition <- "SubjectPosition"
+Disagreement_SubjectPosition <- subset(
+  Annotated_columns,
+  Annotated_columns[[paste0(SubjectPosition, "_kocher")]] !=
+    Annotated_columns[[paste0(SubjectPosition, "_my")]],
+  select = c(
+    "ID",
+    "Text",
+    paste0(SubjectPosition, "_kocher"),
+    paste0(SubjectPosition, "_my")))
+
+CohensK_SubjectPosition <- kappa2(
+  data.frame(
+    Annotated_columns$SubjectPosition_kocher,
+    Annotated_columns$SubjectPosition_my)) #Cohen's κ = 1 > full agreement
+
+mean_SubjectPosition <- mean(
+  Annotated_columns$SubjectPosition_kocher ==
+    Annotated_columns$SubjectPosition_my,
+  na.rm = TRUE) * 100 #100.0%
+
+```
+
+### VerbConstruction
+
+```{r}
+
+VerbConstruction <- "VerbConstruction"
+Disagreement_VerbConstruction <- subset(
+  Annotated_columns,
+  Annotated_columns[[paste0(VerbConstruction, "_kocher")]] !=
+    Annotated_columns[[paste0(VerbConstruction, "_my")]],
+  select = c(
+    "ID",
+    "Text",
+    paste0(VerbConstruction, "_kocher"),
+    paste0(VerbConstruction, "_my")))
+
+CohensK_VerbConstruction <- kappa2(
+  data.frame(
+    Annotated_columns$VerbConstruction_kocher,
+    Annotated_columns$VerbConstruction_my)) #Cohen's κ = 0.803
+
+mean_VerbConstruction <- mean(
+  Annotated_columns$VerbConstruction_kocher ==
+    Annotated_columns$VerbConstruction_my,
+  na.rm = TRUE) * 100 #93.2%
+
+```
+
+### Verb
+
+```{r}
+
+Verb <- "Verb"
+#saving "Verb" as character instead of a factor as the number of level (unique verbs) is different in both frames
+Annotated_columns$Verb_kocher <- as.character(Annotated_columns$Verb_kocher) #'Verb' contains 60 levels here
+Annotated_columns$Verb_my <- as.character(Annotated_columns$Verb_my) 
+#'Verb' contains 59 levels here
+
+CohensK_Verb <- kappa2(
+  data.frame(
+    Annotated_columns$Verb_kocher,
+    Annotated_columns$Verb_my)) #Cohen's κ = 0.974
+
+mean_Verb <- mean(
+  Annotated_columns$Verb_kocher ==
+    Annotated_columns$Verb_my,
+  na.rm = TRUE) * 100 #97.5%
+
+```
+
+### Displaying inter-annotator agreement results as a table
+
+```{r}
+
+IAA_table <- data.frame(
+  Variable = c(
+    "SubjectType",
+    "ReferentialContinuity",
+    "ClauseType",
+    "InformationStructure",
+    "SubjectPosition",
+    "VerbConstruction",
+    "Verb"),
+  Agreement = c(
+    mean_SubjectType,
+    mean_ReferentialContinuity,
+    mean_ClauseType,
+    mean_InformationStructure,
+    mean_SubjectPosition,
+    mean_VerbConstruction,
+    mean_Verb),
+  CohensK = c(
+    CohensK_SubjectType$value,
+    CohensK_ReferentialContinuity$value,
+    CohensK_ClauseType$value,
+    CohensK_InformationStructure$value,
+    CohensK_SubjectPosition$value,
+    CohensK_VerbConstruction$value,
+    CohensK_Verb$value
+  ))
+
+#rounding values for a better overview
+IAA_table$Agreement <- round(IAA_table$Agreement, 1)
+IAA_table$CohensK <- round(IAA_table$CohensK, 3)
+
+#saveRDS(IAA_table, "2_Robustness_Check/Calculations/IAA_table.rds") #TI: saving as rds to read in thesis file
+
+kable(IAA_table,
+  caption = "Inter-annotator agreement and Cohen's Kappa values")
+
+#saveRDS(CohensK_InformationStructure, "2_Robustness_Check/Calculations/CohensK_InformationStructure.rds") #TI: saving as rds to read in thesis file
+
+#saveRDS(CohensK_SubjectPosition, "2_Robustness_Check/Calculations/CohensK_SubjectPosition.rds") #TI: saving as rds to read in thesis file
+
+```
+
+**Concluding remarks**
+
+The re-annotation of a sample of the data yielded high levels of agreement between the original annotation and my annotation. Cohen's K ranged from `{r} round(CohensK_InformationStructure$value, 3)` to `{r} round(CohensK_SubjectPosition$value, 3)`, indicating substantial to almost perfect agreement according to Landis and Koch (1977). These results suggest that the annotation scheme was applied consistently and that the manually annotated variables can be considered robust. Nevertheless, the comments regarding the data exclusion in the `0_Preprocessing.qmd` file should be noted.

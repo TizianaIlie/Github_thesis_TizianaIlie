@@ -1,0 +1,319 @@
+---
+title: "4_Extension2_EnglishL1_mupdarfanalysis"
+format: html
+editor: visual
+author: "Tiziana Ilie"
+---
+
+# 1. Extension: Investigating the influence of the speaker's gender and the grammatical gender of the referential subject
+
+## Set up and packages
+
+```{r}
+
+library(partykit)
+library(dplyr)
+library(stringr)
+library(lattice)
+library(usethis)
+library(devtools)
+library(moreparty)
+library(here)
+
+```
+
+## Loading data
+
+```{r}
+
+datanative<-read.csv(here::here("data", "annotations", "KoRoLi_data", "kocher_native_data_koroli.csv"), stringsAsFactors = TRUE) #loading native speaker data
+
+datal2english<-read.csv(here::here("data", "annotations", "datal2english.csv"), stringsAsFactors = TRUE) #loading English L2 Spanish learner data
+
+```
+
+## STEP 1: Native L1 data predictive model
+
+### Distributions (Duration)
+
+```{r}
+
+sd(datal2english$DurationTask) #15.91207 
+range(datal2english$DurationTask) #1-120 
+mean(datal2english$DurationTask) #16.99767 (GermanL1 is 68.27338 in comparison!)
+
+```
+
+### MUPDARF
+
+MUPDARF stands for 'Multifactorial Prediction and Deviation Analysis Using Regression/Random Forests'. This approach attempts to improve upon traditional regression- or tree-based methods by firstly training a model on reference speakers (often native speakers in learner corpus studies or British English speakers in variety studies) and then using this model to predict what the reference speaker would produce in the target speaker's situation (often non-native or indigenized variety speakers). The third step consists of determining whether the target speakers made a canonical choice and exploring that variability with a second regression model or classifier (see Gries, 2020).
+
+```{r}
+
+#Before comparing the models, I rename the 'Sex' column 'SpeakerGender', aligning the plot labels with the variables to be investigated in the next section.
+
+datanative <- datanative |> 
+  rename("SpeakerGender" = "Sex") #renaming the speaker's gender column
+datal2english <- datal2english |> 
+  rename("SpeakerGender" = "Sex")
+
+# Final model with SubjectGenus predictor
+rfpnative_final <- partykit::cforest(SubjectType ~ SubjectPosition +
+                                       InformationStructure +
+                                       ReferentialContinuity +
+                                       ClauseType +
+                                       SubjectGenus, #added SubjectGenus
+                                     weights = ifelse(datanative$SubjectType ==
+                                                        "dp", 2,
+                                               ifelse(datanative$SubjectType ==
+                                                        "pron",4,1) ),
+                                     data = datanative)
+
+```
+
+### Checking accuracy
+
+```{r}
+
+confusionmatrixrfpnative<-table(predict(rfpnative_final), datanative$SubjectType)
+confusionmatrixrfpnative
+saveRDS(confusionmatrixrfpnative, "4_Extension2_EnglishGenus/Calculations/confusionmatrix_native_closerepl2.rds") #TI: saving as rds to read in thesis document
+sum(diag(confusionmatrixrfpnative))/sum(confusionmatrixrfpnative) #moderate accuracy of 64%, like 64% in Kocher's paper
+
+```
+
+All models provide a similarly moderate level of accuracy. However, the model that includes the *SubjectGenus* variable is equally accurate, so I will select this as the new final model.
+
+### Figure (Variable importance)
+
+```{r}
+
+#pdf(here::here("4_Extension2_EnglishGenus", "Figures", "varimp_native.pdf"), width=5, height = 5)
+#varimp<-varimp.cforest(rfpnative_final) #TI: variable importance
+#dotplot(sort(varimp),  xlab="Variable importance", col="gray51") 
+#dev.off()
+
+#png(here::here("4_Extension2_EnglishGenus", "Figures", "varimp_native.png"), width=500, height = 500)
+#varimp<-varimp.cforest(rfpnative_final) #TI: variable importance
+#dotplot(sort(varimp),  xlab="Variable importance", col="gray51") 
+#dev.off()
+
+```
+
+### Inspecting predictions of the final model (including [SubjectGenus]{.smallcaps})
+
+```{r}
+
+datanative$Predictions<-predict(rfpnative_final) 
+#predicts a value of SubjectType for each observation in datanative
+
+datanative$Correct<-as.character(datanative$Predictions) 
+#variable called Correct is created and initially contains the predicted class labels
+
+datanative[datanative$Predictions==datanative$SubjectType,]$Correct<-"CORRECT" 
+#code compares the predicted value with the true value. When they match, 'Correct' is replaced by 'CORRECT'.
+
+datanative$Correct<-recode(datanative$Correct, pron="predictpron", dp="predictdp",nullsub="predictnullsub") 
+#incorrectly classified observations are renamed to make it explicit what the model actually predicted
+
+datanative$Correct<-as.factor(datanative$Correct)
+
+```
+
+Wrong predictions
+
+```{r}
+
+corrtab<-table(datanative$Correct, datanative$SubjectType)
+corrtab #different type of visualisation of the confusionmatrix
+
+#DPs
+corrtab[1,1]/sum(corrtab[c(1,2,3,4),1]) # 77, originally 80 correct as also in the paper
+corrtab[3,1]/sum(corrtab[c(1,2,3,4),1]) #  7, originally 8 null sub
+corrtab[4,1]/sum(corrtab[c(1,2,3,4),1]) # 14, originally 10 pronouns
+
+#nullsubs
+corrtab[1,2]/sum(corrtab[c(1,2,3,4),2]) #59, originally 60 as also correct in the paper
+corrtab[2,2]/sum(corrtab[c(1,2,3,4),2]) #24, originally 24 Dps
+corrtab[4,2]/sum(corrtab[c(1,2,3,4),2]) #16, originally 14 pronouns
+
+#pronouns
+corrtab[1,3]/sum(corrtab[c(1,2,3,4),3]) #51, originally 38 correct in the paper !!!
+corrtab[2,3]/sum(corrtab[c(1,2,3,4),3]) #26, originally 32 Dps
+corrtab[3,3]/sum(corrtab[c(1,2,3,4),3]) #21, originally 28 nullsub
+
+```
+
+For L1 English speaking learners of Spanish: More pronouns were correctly predicted using the new model (with *SubjectGenus*) in the L1 English data compared to the L1 German data.
+
+## STEP 2: Running 'Predictnativerf' on the L2German data
+
+Applying the predictive native speaker model to L2 English data:
+
+```{r}
+
+datal2english.mini1 <- datal2english[1:500,]
+datal2english.mini1$Predictnativerf<-predict(rfpnative_final, newdata=datal2english.mini1)
+
+datal2english.mini2 <- datal2english[501:1000,]
+datal2english.mini2$Predictnativerf<-predict(rfpnative_final, newdata=datal2english.mini2)
+
+datal2english.mini3 <- datal2english[1001:1285,]
+datal2english.mini3$Predictnativerf<-predict(rfpnative_final, newdata=datal2english.mini3)
+
+datal2english_new <- bind_rows(list(datal2english.mini1, datal2english.mini2,datal2english.mini3))
+
+#View(datal2english_new)
+
+rm(datal2english) #TI: remove old datal2english
+datal2english <- datal2english_new #TI: renaming df
+rm(datal2english_new) #TI: remove datal2english_new
+```
+
+## STEP 3: Predictions
+
+This step creates a new categorical variable that indicates whether the random forest prediction matches the observed *SubjectType*, and, if not, which category was predicted instead.
+
+### Add CORRECT + predicted value vector
+
+```{r}
+
+#As I annotated the 'unknown' cases that were not included in the predictive model, I received an error message. The following code deselects the unknown cases in order to run:
+
+levels(datal2english$SubjectType)
+levels(datal2english$SubjectGenus)
+
+datal2english <- datal2english |> 
+  filter(SubjectType != "unknown",
+         SubjectGenus != "unknown")|>
+  droplevels()
+
+datal2english$ReferenceLikeCat <- as.character(datal2english$Predictnativerf) 
+#'ReferenceLikeCat' is created and initially contains the values of 'Predictnativerf'
+
+datal2english[datal2english$Predictnativerf==datal2english$SubjectType,]$ReferenceLikeCat<-"CORRECT" 
+#TI: markes correctly predicted cases
+
+datal2english$ReferenceLikeCat<-recode(datal2english$ReferenceLikeCat, pron="predictpron", dp="predictdp",nullsub="predictnullsub") 
+#renaming incorrect cases (see above)
+
+datal2english$ReferenceLikeCat<-as.factor(datal2english$ReferenceLikeCat)
+
+datal2english$SubjectType <- factor(datal2english$SubjectType, 
+             levels = c("nullsub", "dp", "pron")) #TI: sets the order of factor levels
+
+datal2english$Predictnativerf <- factor(datal2english$Predictnativerf,                                              levels = c("nullsub", "dp", "pron"))
+
+```
+
+### INSPECTION: Predicted vs observed
+
+```{r}
+
+english_pred_actual <- table(datal2english$Predictnativerf, datal2english$SubjectType) #differences in l1 and L2 English
+#saveRDS(english_pred_actual, "4_Extension2_EnglishGenus/Calculations/english_pred_actual.rds") #TI: saving as rds to read in thesis document
+
+table(datal2english$ReferenceLikeCat, datal2english$SubjectType)
+# how much overlap
+
+predictions_english <- round(table(datal2english$ReferenceLikeCat)[1] /sum(table(datal2english$ReferenceLikeCat)) * 100, digits = 1) # TI: There is a 67% total correct agreement between the native-speaker model and the L2English data.
+
+
+#nullsub
+table(datal2english$Predictnativerf, datal2english$SubjectType)[1,1]/sum(table(datal2english$Predictnativerf, datal2english$SubjectType)[,1]) 
+#73.6%
+#Kocher: 75% correct (TI: also in table 8 in the paper)
+
+#dps
+table(datal2english$Predictnativerf, datal2english$SubjectType)[2,2]/sum(table(datal2english$Predictnativerf, datal2english$SubjectType)[,2]) 
+#72.1%
+#Kocher: 77% correct
+
+#pronouns
+table(datal2english$Predictnativerf, datal2english$SubjectType)[3,3]/sum(table(datal2english$Predictnativerf, datal2english$SubjectType)[,3]) 
+#41%
+#Kocher: 34% correct
+
+#For L2 speakers, the use of pronouns differs substantially from the patterns learned from native speakers, resulting in fewer correct predictions. For learners of English as a first language, the number is slightly higher.
+
+#In contrast, null subjects and DPs demonstrate a much stronger alignment with the model of a native speaker.
+
+
+```
+
+## STEP 4: Adding the reference-likeness variable
+
+### Recode Response variable
+
+```{r}
+
+datal2english$ReferenceLike<-as.factor(temp<-ifelse(datal2english$Predictnativerf==datal2english$SubjectType, "TRUE", "FALSE")) 
+#creating binary 'ReferenceLike' variable
+
+#MODEL
+
+rfpl2 <- party::cforest(ReferenceLike ~ ClauseType +
+                          InformationStructure +
+                          ReferentialContinuity + 
+                          SubjectType +
+                          SubjectPosition + 
+                          Score +
+                          SubjectGenus, 
+                        data = datal2english)
+                        #weights = ifelse(datal2german$ReferenceLikeCat =='CORRECT', 1,ifelse(datal2german$ReferenceLikeCat == "predictdp",5,8))
+#choice of weights remains unclear
+```
+
+### Figure (Proficiency:Score)
+
+```{r}
+
+varimp_l1English <- party::varimp(rfpl2) # Advice ELF: Presumably we need to specify that the party package should be used for this function (as opposed to partykit).
+
+#pdf(here::here("4_Extension2_EnglishGenus", "Figures", "varimp_EnglishL1.pdf"),width=5, height = 5)
+#dotplot(sort(varimp_l1English), col="gray51", xlab="Variable importance")
+#dev.off() 
+
+#png(here::here("4_Extension2_EnglishGenus", "Figures", "varimp_EnglishL1.png"),width=500, height = 500)
+#dotplot(sort(varimp_l1English), col="gray51", xlab="Variable importance")
+#dev.off() 
+```
+
+### Checking accuracy
+
+```{r}
+
+confusionmatrix_english_closerepl2<-table(predict(rfpl2),datal2english$ReferenceLike)
+confusionmatrix_english_closerepl2 #TI: only 18 observations are classified incorrectly (11 in L1 German ds)
+#saveRDS(confusionmatrix_english_closerepl2, "4_Extension2_EnglishGenus/Calculations/confusionmatrix_english_closerepl2.rds") #TI: saving as rds to read in thesis document
+
+sum(diag(confusionmatrix_english_closerepl2))/sum(confusionmatrix_english_closerepl2) #98.6% (in L1German 99.8%)
+
+```
+
+### Plotting the surrogate model
+
+```{r}
+
+surro_l2English<-SurrogateTree(rfpl2, maxdepth=4)
+Rsquare_surro_closerepli2 <- surro_l2English$r.squared #R^2 is 0.467 (0.999 in L1German ds, 0.945 in the paper and reproducibility part)
+#saveRDS(Rsquare_surro_closerepli2, "4_Extension2_EnglishGenus/Calculations/Rsquare_surro_closerepli2.rds")
+
+#FIGURE
+#pdf(here::here("4_Extension2_EnglishGenus", "Figures", "surro_l2English.pdf"), width = 21, height = 10) 
+#tree <- surro_l2English$tree
+#plot(tree)
+#dev.off()
+
+#png(here::here("4_Extension2_EnglishGenus", "Figures", "surro_l2English.png"), width = 2000, height = 1000) 
+#tree <- surro_l2English$tree
+#plot(tree)
+#dev.off()
+```
+
+Saving the dataframes with the columns *ReferenceLikeCat* and *ReferenceLike* as .csv tables:
+
+```{r}
+#View(datal2english)
+write.csv(datal2english, here::here("data", "annotations", "withReferenceLike", "ReferenceLike_L1English.csv"), row.names = FALSE)
+```
